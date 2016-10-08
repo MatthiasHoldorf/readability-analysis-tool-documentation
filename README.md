@@ -36,7 +36,7 @@ Licence | Not determined
 <div id='id-section02'/>
 # Getting Started
 
-RAT is invoked via the command line. The assembly is delivered with exatuables that directly produce results
+RAT is invoked via the command line. The assembly is delivered with example exatuables and documents. By that, the handling of the software can be learned quick and the results are shown.
 
 <pre>
 .
