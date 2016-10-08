@@ -128,27 +128,27 @@ RAT detects the below listed readability anomalies and annotates them as comment
 The annotated .docx file is saved in the same directory as the original document with a "-rat.docx" suffix, e.g. "{filename}-rat.{file-extension}".
 
 ## Implemented Readability Anomalies
-AdjectiveStyle
-AmbiguousAdjectivesAndAdverbs
-ConsecutiveFillers
-ConsecutivePrepositions
-DoubleNegative
-Filler
-FillerSentence
-IndirectSpeech
-LeadingAttributes
-LongSentence
-LongWord
+- AdjectiveStyle
+- AmbiguousAdjectivesAndAdverbs
+- ConsecutiveFillers
+- ConsecutivePrepositions
+- DoubleNegative
+- Filler
+- FillerSentence
+- IndirectSpeech
+- LeadingAttributes
+- LongSentence
+- LongWord
 - [ModalVerb](#modalVerb)
-ModalVerbSentence
-NestedSentence
-NestedSentenceConjunction
-NestedSentenceDelimiter
+- ModalVerbSentence
+- NestedSentence
+- NestedSentenceConjunction
+- NestedSentenceDelimiter
 - [NominalStyle](#nominalStyle)
-PassiveVoice
-SentencesStartWithSameWord
-SubjectiveLanguage
-UnnecessarySyllables
+- PassiveVoice
+- SentencesStartWithSameWord
+- SubjectiveLanguage
+- UnnecessarySyllables
 
 <div id='modalVerb'/>
 
