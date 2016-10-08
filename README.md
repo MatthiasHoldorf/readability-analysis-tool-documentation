@@ -36,15 +36,38 @@ Licence | Not determined
 <div id='id-section02'/>
 # Getting Started
 
-RAT is invoked through the command line. It takes a file or directory path as an argument and generates a second .docx file
-"{filename}-rat.{file-extension}" with the annotations of readability anomalies. The second file generated is the report "{filename}-rat-report.html".
+RAT is invoked via the command line. The assembly is delivered with exatuables that directly produce results
 
-[IMAGE-DIRECTORY-LAYOUT]
+<pre>
+.
+|---config
+    |   rat-config.xml
+|---examples
+    |---config-in-folder
+        |   45-page-9500-words-assignment.docx
+        |   rat-config.xml
+        |   rat-example.cmd
+    |   multiple-files
+        |   45-page-9500-words-assignment-0.docx
+        |   45-page-9500-words-assignment-1.docx
+        |   45-page-9500-words-assignment-2.docx
+        |   rat-example.cmd
+    |   output-directory
+    |   single-file
+        |   45-page-9500-words-assignment.docx
+        |   rat-example.cmd
+|---lib
+    |   # jar files of the application
+|   rat.cmd
+|   rat.sh
+|   rat.example.cmd
+|   rat.example.sh
+</pre>
 
 <div id='id-section0'/>
 # Arguments
 
-RAT can be invoked from the command line with the following arguments:
+RAT can be invoked from the command line with the following optional arguments:
 
 ```
 usage: Rat v0.4
@@ -52,6 +75,8 @@ usage: Rat v0.4
  -o,--outputDirectory <arg>     the output directory for the document and statistic report
  -h,--help                      display help menu
 ```
+
+The last argument must be a valid path to a potential file for an analysis. Command line wildcards can be used, e.g. `/*.docx` or `directoryPath/*/*.docx`.
 
 <div id='id-section1'/>
 # Readability Formulas
