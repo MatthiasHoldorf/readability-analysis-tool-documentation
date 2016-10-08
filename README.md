@@ -175,6 +175,7 @@ Correct Example | Folglich stieg die *__Hoffnung__*, dass es gelingen würde, di
 
 The default readability rule configuration:
 
+```xml
 <anomalies>
     <anomaly-rule>
         <name>AdjectiveStyle</name>
@@ -294,6 +295,7 @@ The default readability rule configuration:
         <enabled>true</enabled>
     </anomaly-rule>
 </anomalies>
+```
 
 <div id='id-section4'/>
 # Configuration & Quality Gate
@@ -304,6 +306,7 @@ First, RAT looks for the configuration at the provided argument (-c or --configu
 
 The default quality gate configuration:
 
+```xml
 <quality-gate>
         <anomalies>
             <anomaly>
@@ -355,13 +358,4 @@ The default quality gate configuration:
             </statistic>
         </statistics>
     </quality-gate>
-
-<div id='id-section5'/>
-# ToDo
-- [x] Explain the command line arguments
-- [ ] Explain how to use the Rat
-- [ ] Explain configuration of Readability Rules / Quality Gate
-- [ ] Explain its API / Link to the Javadoc
-- [ ] Explain how to write on new Readability Rules
-- [ ] Explain how to contribute, e.g. write a module for another file input and out
-- [ ] State its Performance
+```
