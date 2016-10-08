@@ -12,20 +12,26 @@
 <div id='id-section01'/>
 # About
 
-RAT is a tool to detect readability anomalies (i.e., text passages that are hard for a reader to understand). These readability anomalies are annotated (as comments) in a .docx file. Readability rules writte in UIMA Ruta or plain Java detect the readability anomalies.
+RAT is a tool to detect readability anomalies in text. Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. 
 
-Further, RAT computes statistics about the text (e.g., average words per sentence) and readability formulas (e.g., Flesch) and stores them in an HTML report.
+During an analysis the .docx file is enriched with comments (the anomaly findings). The .docx file is saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by the software. In case a document is analysed that already has a "-rat.docx" suffix, the very same document is altered!
 
-The HTML report aggregates all readability mesaurements and assess the overall readability of the text through a quality gate, similar to static code analysis tools.
+Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas) and stores them in an HTML report next to the analyzed document.
+
+For both the analysed document and the statstic report an optional outputDirectorycan be specified via the commands "-o" or "--outputDirectory".
+
+The HTML report aggregates all readability mesaurements and assess the overall readability of the text through a quality gate; similar to static code analysis tools.
+
+Further, the report shows anomalies that were marked as declined (false positives) or incorporated by the user. RAT saves these information also in the XML of the .docx file itself. This way one can comprehend what action where taken during the editing of the document.
 
 Name | Description
 ------------ | -------------
 RAT | Readability Analysis Tool (Readability-Checker)
 Supported File Types | .docx
-Readability Rules | German, English
-Features | <ul><li>Annotation of Readability</li><li>Anomalies as Comments</li><li>HTML Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li><li>Fast (e.g., 6 Seconds for 10.000 Words (45 Pages))</li></ul>
+Readability Rules | German
+Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li><li>Fast (e.g., 6 Seconds for 10.000 Words (45 Pages))</li></ul>
 Technologies | <ul><li>UIMA</li><li>UIMA Ruta</li><li>DKPro Core</li></ul>
-Licence | ALV2
+Licence | Not determined
 
 <div id='id-section02'/>
 # Getting Started
@@ -41,14 +47,10 @@ RAT is invoked through the command line. It takes a file or directory path as an
 RAT can be invoked from the command line with the following arguments:
 
 ```
-usage: Rat v ${project.version}
+usage: Rat v0.4
  -c,--configurationPath <arg>   the file path of the configuration
- -d,--directoryPath <arg>       the directory path of the document(s) to
-                                be analysed
+ -o,--outputDirectory <arg>     the output directory for the document and statistic report
  -h,--help                      display help menu
- -p,--filePath <arg>            the file path of the document to be
-                                anaylsed
- -v,--version                   display the verison of rat
 ```
 
 <div id='id-section1'/>
@@ -56,7 +58,7 @@ usage: Rat v ${project.version}
 
 RAT computes the below listed readability formulas. 
 
-The results are saved in the same directory as the original document with a "rat-report" suffix, e.g. "{filename}-rat-report.html".
+The results are saved in the same directory as the original document appneded by a "rat-report.html" suffix, e.g. "{filename}-rat-report.html".
 
 Readability Formula | Link
 ------------ | -------------
@@ -68,7 +70,7 @@ Wiener Sachtextformel | https://de.wikipedia.org/wiki/Lesbarkeitsindex#Wiener_Sa
 
 RAT computes the below listed readability statistics. 
 
-The results are saved in the same directory as the original document with a "rat-report" suffix, e.g. "{filename}-rat-report.html".
+The results are saved in the same directory as the original document with a "rat-report.html" suffix, e.g. "{filename}-rat-report.html".
 
  # | Name of statistic | Description
 ------------ | -------------  | ------------- 
@@ -83,37 +85,51 @@ The results are saved in the same directory as the original document with a "rat
 9	| Average Number of Characters per Sentence | 
 10	| Average Number of Syllables per Word | 
 11	| Average Number of Characters per Word | 
-12	| Longest Sentence | 
-13	| Longest Word by Syllables | 
-14	| Longest Word by Characters | 
+12	| Most used Nouns | 
+13	| Most used Verbs | 
+14	| Most used Adjectives | 
+15	| Most used Conjunctions | 
+16	| Percentage of Nouns in Text | 
+17	| Percentage of Verbs in Text | 
+18	| Percentage of Adjectives in Text | 
+19	| Percentage of Conjunctions in Text | 
+20	| Percentage of specified keywords in configuration file | 
 
 <div id='id-section3'/>
 # Readability Anomalies
 
-RAT detects the below listed readability anomalies and marks them as comments in .docx files. It furhter displays and marks the anomalies in the "{filename}-rat-report.html".
+RAT detects the below listed readability anomalies and annotates them as comments in .docx files.
 
-The annotated .docx file is saved in the same directory as the original document with a "-rat" suffix, e.g. "{filename}-rat.{file-extension}".
+The annotated .docx file is saved in the same directory as the original document with a "-rat.docx" suffix, e.g. "{filename}-rat.{file-extension}".
 
 ## Implemented Readability Anomalies
+AdjectiveStyle
+AmbiguousAdjectivesAndAdverbs
+ConsecutiveFillers
+ConsecutivePrepositions
+DoubleNegative
+Filler
+FillerSentence
+IndirectSpeech
+LeadingAttributes
+LongSentence
+LongWord
 - [ModalVerb](#modalVerb)
+ModalVerbSentence
+NestedSentence
+NestedSentenceConjunction
+NestedSentenceDelimiter
 - [NominalStyle](#nominalStyle)
-1.	Subjective Language
-2.	Ambiguous Adverbs and Adjectives
-3.	Loopholes
-4.	Open-ended, non-verifiable terms
-5.	Superlatives
-6.	Comparatives
-7.	Negative Statements
-8.	Vague Pronouns
-9.	Incomplete References
-
+PassiveVoice
+SentencesStartWithSameWord
+SubjectiveLanguage
+UnnecessarySyllables
 
 <div id='modalVerb'/>
 
 Key | Properties
 ------------ | -------------
 Anomaly Name | ModalVerb
-Category | General
 Severity | Major
 Entity | Word
 Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
@@ -132,16 +148,188 @@ Explanation | Sätze im Nominalstil sind durch Nomen (Substantive) und Substanti
 Incorrect Example | Folglich stiegen die *__Hoffnungen__*, dass die Bewältigung der kommenden *__Herausforderungen__* und die *__Anpassung__* der *__Wirtschaftsordnung__* an die veränderten *__Rahmenbedingungen__* des globalen Wettbewerbs gelingen würden.
 Correct Example | Folglich stieg die *__Hoffnung__*, dass es gelingen würde, die kommenden Probleme zu lösen und die Wirtschaft den veränderten *__Bedingungen__*  des globalen Wettbewerbs anzupassen. 
 
+The default readability rule configuration:
+
+<anomalies>
+    <anomaly-rule>
+        <name>AdjectiveStyle</name>
+        <severity>Major</severity>
+        <threshold>6</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>AmbiguousAdjectivesAndAdverbs</name>
+        <severity>Minor</severity>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>ConsecutiveFillers</name>
+        <severity>Minor</severity>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>ConsecutivePrepositions</name>
+        <severity>Minor</severity>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>DoubleNegative</name>
+        <severity>Major</severity>
+        <threshold>2</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>Filler</name>
+        <severity>Minor</severity>
+        <enabled>false</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>FillerSentence</name>
+        <severity>Major</severity>
+        <threshold>3</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>IndirectSpeech</name>
+        <severity>Minor</severity>
+        <enabled>false</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>LeadingAttributes</name>
+        <severity>Major</severity>
+        <threshold>4</threshold>
+        <enabled>false</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>LongSentence</name>
+        <severity>Critical</severity>
+        <threshold>35</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>LongWord</name>
+        <severity>Major</severity>
+        <threshold>8</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>ModalVerb</name>
+        <severity>Minor</severity>
+        <enabled>false</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>ModalVerbSentence</name>
+        <severity>Minor</severity>
+        <threshold>2</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>NestedSentence</name>
+        <severity>Critical</severity>
+        <threshold>6</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>NestedSentenceConjunction</name>
+        <severity>Major</severity>
+        <threshold>3</threshold>
+        <enabled>false</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>NestedSentenceDelimiter</name>
+        <severity>Major</severity>
+        <threshold>3</threshold>
+        <enabled>false</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>NominalStyle</name>
+        <severity>Major</severity>
+        <threshold>3</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>PassiveVoice</name>
+        <severity>Major</severity>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>SentencesStartWithSameWord</name>
+        <severity>Minor</severity>
+        <threshold>2</threshold>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>SubjectiveLanguage</name>
+        <severity>Minor</severity>
+        <enabled>true</enabled>
+    </anomaly-rule>
+    <anomaly-rule>
+        <name>UnnecessarySyllables</name>
+        <severity>Minor</severity>
+        <enabled>true</enabled>
+    </anomaly-rule>
+</anomalies>
+
 <div id='id-section4'/>
 # Configuration & Quality Gate
 
 The generated report "{filename}-rat-report.html" aggregates the results of the different measurements (formulas, statistics and anomalies). Further, a quality gate indicates whether the text is too trivial or too hard to understand.
 
-[IMAGE DASHBOARD]
+First, RAT looks for the configuration at the provided argument (-c or --configurationPath). If this parameter is not provided, e.g. is null, or there is no valid file at the location, RAT will look in the directory path of the file that is currently analysed for a file named "rat-config.xml". If both ways fail to obtain a configuration file, the defaultConfig parameter provided by the executor is considered. In case the default configuration is not a file (e.g., is deleted), the rat internal configuration will be loaded.
 
-If no configuration path is provided as an argument, RAT will search in the same directory as the original document for a file named "rat-config.xml". If this does not exist, RAT will take the default configuration settings for the analysis and the quality gate.
+The default quality gate configuration:
 
-[CONFIG.XML]
+<quality-gate>
+        <anomalies>
+            <anomaly>
+                <severity>minor</severity>
+                <warning-threshold>50</warning-threshold>
+                <error-threshold>9999</error-threshold>
+            </anomaly>
+            <anomaly>
+                <severity>major</severity>
+                <warning-threshold>1</warning-threshold>
+                <error-threshold>30</error-threshold>
+            </anomaly>
+            <anomaly>
+                <severity>critical</severity>
+                <warning-threshold>1</warning-threshold>
+                <error-threshold>1</error-threshold>
+            </anomaly>
+        </anomalies>
+        <formulas>
+            <formula>
+                <name>flesch-reading-ease-amstad</name>
+                <easy-warning-threshold>75</easy-warning-threshold>
+                <hard-warning-threshold>25</hard-warning-threshold>
+                <easy-error-threshold>80</easy-error-threshold>
+                <hard-error-threshold>20</hard-error-threshold>
+            </formula>
+            <formula>
+                <name>wiener-sachtextformel</name>
+                <easy-warning-threshold>7</easy-warning-threshold>
+                <hard-warning-threshold>14</hard-warning-threshold>
+                <easy-error-threshold>5</easy-error-threshold>
+                <hard-error-threshold>16</hard-error-threshold>
+            </formula>
+        </formulas>
+        <statistics>
+            <statistic>
+                <name>average-number-of-words-per-sentence</name>
+                <easy-warning-threshold>7</easy-warning-threshold>
+                <hard-warning-threshold>19</hard-warning-threshold>
+                <easy-error-threshold>5</easy-error-threshold>
+                <hard-error-threshold>26</hard-error-threshold>
+            </statistic>
+            <statistic>
+                <name>average-number-of-syllables-per-word</name>
+                <easy-warning-threshold>1.4</easy-warning-threshold>
+                <hard-warning-threshold>3</hard-warning-threshold>
+                <easy-error-threshold>1.2</easy-error-threshold>
+                <hard-error-threshold>4</hard-error-threshold>
+            </statistic>
+        </statistics>
+    </quality-gate>
 
 <div id='id-section5'/>
 # ToDo
