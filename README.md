@@ -68,7 +68,7 @@ During an analysis a .docx file is enriched with comments (the readability anoma
 The results of an analysis:
 
 
-![Results](/doc-images/results-docx.PNG)
+![results-docx](/doc-images/results-docx.PNG)
 
 Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas) and stores them in an HTML report next to the analyzed document.
 
@@ -138,7 +138,7 @@ The last argument must be a valid path to a potential file for an analysis. Comm
 
 RAT computes the below listed readability formulas. 
 
-The results are saved in the same directory as the original document appneded by a "rat-report.html" suffix, e.g. "{filename}-rat-report.html".
+The results are saved in the same directory as the original document appended by a "rat-report.html" suffix, e.g. "{filename}-rat-report.html".
 
 Readability Formula | Link
 ------------ | -------------
@@ -174,6 +174,8 @@ The results are saved in the same directory as the original document with a "rat
 18	| Percentage of Adjectives in Text | 
 19	| Percentage of Conjunctions in Text | 
 20	| Percentage of specified keywords in configuration file | 
+
+![rat-statistics](/doc-images/rat-statistics.PNG)
 
 <div id='id-section3'/>
 # Readability Anomalies
@@ -358,6 +360,15 @@ The default readability rule configuration:
 The generated report "{filename}-rat-report.html" aggregates the results of the different measurements (formulas, statistics and anomalies). Further, a quality gate indicates whether the text is too trivial or too hard to understand.
 
 First, RAT looks for the configuration at the provided argument (-c or --configurationPath). If this parameter is not provided, e.g. is null, or there is no valid file at the location, RAT will look in the directory path of the file that is currently analysed for a file named "rat-config.xml". If both ways fail to obtain a configuration file, the defaultConfig parameter provided by the executor is considered. In case the default configuration is not a file (e.g., is deleted), the rat internal configuration will be loaded.
+
+Based on the conceptional design of the quality gate depicted by SonarQube:
+
+![rat-quality-sonar](/doc-images/rat-quality-sonar.PNG)
+
+We developed a similar quality gate for RAT:
+
+![rat-quality-gate](/doc-images/rat-quality-gate.PNG)
+
 
 The default quality gate configuration:
 
