@@ -12,7 +12,53 @@
 <div id='id-section01'/>
 # About
 
-RAT is a tool to detect readability anomalies in text. Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. 
+RAT is a tool to detect readability anomalies in text based on readability rules.
+
+Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. An example constitutes the following readability rule:
+
+```Java
+@TypeCapability(inputs = { "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
+        "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence" }, outputs = {
+                "de.qaware.rat.type.RatReadabilityAnomaly" })
+public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConsecutiveFillersAnnotator.class);
+
+    public static final String SEVERITY = RuleParameter.SEVERITY;
+    @ConfigurationParameter(name = RuleParameter.SEVERITY, mandatory = true, defaultValue = "Minor")
+    protected String severity;
+
+    @Override
+    public void process(JCas aJCas) {
+        LOGGER.info("Start ConsecutiveFillersAnnotator");
+
+        try {
+            String[] fillers = ImporterUtils.readWordlist("word-lists/Fillers.txt");
+            List<Token> words = TextStatistic.getWordsInDocument(aJCas);
+
+            int maxSize = words.size() - 1;
+            for (int i = 0; i < words.size(); i++) {
+
+                if (i + 1 <= maxSize) {
+                    if (Arrays.asList(fillers).contains(words.get(i).getCoveredText().toLowerCase())
+                            && Arrays.asList(fillers).contains(words.get(i + 1).getCoveredText().toLowerCase())) {
+                        List<String> violations = new ArrayList<String>();
+                        violations.add(words.get(i).getCoveredText());
+                        violations.add(words.get(i + 1).getCoveredText());
+
+                        UimaUtils.createRatReadabilityAnomaly(aJCas, "ConsecutiveFillers", "ReadabilityAnomaly",
+                                severity,
+                                "Vermeiden Sie aufeinanderfolgende Füllwörter. ("
+                                        + CollectionUtils.printStringList(violations) + ")",
+                                violations, words.get(i).getBegin(), words.get(i).getEnd());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.error("The ConsecutiveFillersAnnotator failed.");
+        }
+    }
+}
+```
 
 During an analysis the .docx file is enriched with comments (the anomaly findings). The .docx file is saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by the software. In case a document is analysed that already has a "-rat.docx" suffix, the very same document is altered!
 
@@ -29,7 +75,8 @@ Name | Description
 RAT | Readability Analysis Tool (Readability-Checker)
 Supported File Types | .docx
 Readability Rules | German
-Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li><li>Fast (e.g., 6 Seconds for 10.000 Words (45 Pages))</li></ul>
+Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li></ul>
+Performance | 6 Seconds for 10.000 Words (45 Pages) after initialization
 Technologies | <ul><li>UIMA</li><li>UIMA Ruta</li><li>DKPro Core</li></ul>
 Licence | Not determined
 
