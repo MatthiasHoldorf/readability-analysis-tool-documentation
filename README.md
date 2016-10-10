@@ -1,3 +1,6 @@
+# Readability Analysis Tool (RAT)
+
+![rat-logo](/doc-images/rat-logo.jpg)
 
 # Table of content
 - [About](#id-section01)
