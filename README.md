@@ -16,6 +16,8 @@
 
 RAT is a tool to detect readability anomalies in text based on readability rules.
 
+## Readability Anomalies
+
 Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. An example constitutes the following readability rule that detects consecutive fillers in a sentence:
 
 ```Java
@@ -62,6 +64,7 @@ public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
 }
 ```
 
+## Readability Analysis
 
 During an analysis a .docx file is enriched with comments (the readability anomaly findings). The .docx file is then saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by RAT. In case a document is analysed that already has a "-rat.docx" suffix, the **very same** document is altered.
 
@@ -75,9 +78,15 @@ The results of an analysis in a .docx file:
 
 ![results-docx](/doc-images/results-docx.PNG)
 
+## Readability Report
+
 Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas) and stores them in an HTML report next to the analyzed document.
 
 For both the analysed document and the statstic report an optional outputDirectorycan be specified via the commands "-o" or "--outputDirectory".
+
+```
+java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ examples/multiple-files/*
+```
 
 The HTML report aggregates all readability mesaurements and assess the overall readability of the text through a quality gate; similar to static code analysis tools.
 
@@ -137,6 +146,22 @@ usage: Rat v0.4
 ```
 
 The last argument must be a valid path to a potential file for an analysis. Command line wildcards can be used, e.g. `/*.docx` or `directoryPath/*/*.docx`.
+
+Examples to invoke RAT:
+
+```
+java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ examples/multiple-files/*
+```
+```
+java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar --configurationPath ../../config/rat-config.xml *
+```
+```
+java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar -c ../../config/rat-config.xml *.docx
+```
+```
+java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar --configurationPath ../../config/rat-config.xml 45-page-9500-words-assignment.docx
+```
+
 
 <div id='id-section1'/>
 # Readability Formulas
