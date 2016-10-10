@@ -209,6 +209,17 @@ The statistics are presented in the HTML report:
 
 ![rat-statistics](/doc-images/rat-statistics.PNG)
 
+Additionaly, RAT detects the occurence of words specified in the keywords section of the configuration file:
+
+```xml
+    <keywords>
+        <keyword>QAware</keyword>
+        <keyword>RAT</keyword>
+    </keywords>
+```
+
+![rat-keywords](/doc-images/rat-keywords.PNG)
+
 <div id='id-section3'/>
 # Readability Anomalies
 
