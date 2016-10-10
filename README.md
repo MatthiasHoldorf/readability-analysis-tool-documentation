@@ -258,7 +258,10 @@ Key | Properties
 Anomaly Name | ModalVerb
 Severity | Major
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Threshold | 1
+Enabled | False
+Word List | dürfte, dürfen, könnte, könnten, können, möchte, möchten, mögen, müsste, müssten, müssen, sollte, sollen, wollte, wollten, wollen
+Explanation | Mit Modalverben lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
 Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
