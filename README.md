@@ -229,29 +229,194 @@ RAT detects the below listed readability anomalies and annotates them as comment
 The annotated .docx file is saved in the same directory as the original document with a "-rat.docx" suffix, e.g. "{filename}-rat.{file-extension}".
 
 ## Implemented Readability Anomalies
-- AdjectiveStyle
-- AmbiguousAdjectivesAndAdverbs
-- ConsecutiveFillers
-- ConsecutivePrepositions
-- DoubleNegative
-- Filler
-- FillerSentence
-- IndirectSpeech
-- LeadingAttributes
-- LongSentence
-- LongWord
+- [AdjectiveStyle](#adjectiveStyle)          
+- [AmbiguousAdjectivesAndAdverbs](#ambiguousAdjectivesAndAdverbs)
+- [ConsecutiveFillers](#consecutiveFillers)
+- [ConsecutivePrepositions](#consecutivePrepositions)
+- [DoubleNegative](#doubleNegative)
+- [Filler](#filler)
+- [FillerSentence](#fillerSentence)
+- [IndirectSpeech](#indirectSpeech)
+- [LeadingAttributes](#leadingAttributes)
+- [LongSentence](#longSentence)
+- [LongWord](#longWord)
 - [ModalVerb](#modalVerb)
-- ModalVerbSentence
-- NestedSentence
-- NestedSentenceConjunction
-- NestedSentenceDelimiter
+- [ModalVerbSentence](#modalVerbSentence)
+- [NestedSentence](#nestedSentence)
+- [NestedSentenceConjunction](#nestedSentenceConjunction)
+- [NestedSentenceDelimiter](#nestedSentenceDelimiter)
 - [NominalStyle](#nominalStyle)
-- PassiveVoice
-- SentencesStartWithSameWord
-- SubjectiveLanguage
-- UnnecessarySyllables
+- [PassiveVoice](#passiveVoice)
+- [SentencesStartWithSameWord](#sentencesStartWithSameWord)
+- [SubjectiveLanguage](#subjectiveLanguage)
+- [UnnecessarySyllables](#unnecessarySyllables)
+
+<div id='adjectiveStyle'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='ambiguousAdjectivesAndAdverbs'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='consecutiveFillers'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='consecutivePrepositions'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='doubleNegative'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='filler'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='fillerSentence'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='indirectSpeech'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='leadingAttributes'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='longSentence'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='longWord'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='modalVerb'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='modalVerbSentence'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='nestedSentence'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='nestedSentenceConjunction'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='nestedSentenceDelimiter'/>
 
 Key | Properties
 ------------ | -------------
@@ -267,12 +432,56 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 Key | Properties
 ------------ | -------------
 Anomaly Name | NominalStyle
-Category | General
 Severity | Critical
-Entity | POS, Lemma
+Entity | Word
 Explanation | Sätze im Nominalstil sind durch Nomen (Substantive) und Substantivierungen geprägt. Die Verwendung entsprechender Begriffe ist nicht per se falsch oder unschön – es kommt vielmehr auf die Häufung an. Werden Sätze oder gar ganze Texte mit Substantivierungen im Stil von „das Hervorrufen“, „das Aufzeigen“ oder „die Verursachung“ übersät, leidet die Lesbarkeit.
 Incorrect Example | Folglich stiegen die *__Hoffnungen__*, dass die Bewältigung der kommenden *__Herausforderungen__* und die *__Anpassung__* der *__Wirtschaftsordnung__* an die veränderten *__Rahmenbedingungen__* des globalen Wettbewerbs gelingen würden.
 Correct Example | Folglich stieg die *__Hoffnung__*, dass es gelingen würde, die kommenden Probleme zu lösen und die Wirtschaft den veränderten *__Bedingungen__*  des globalen Wettbewerbs anzupassen. 
+
+<div id='passiveVoice'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+
+<div id='sentencesStartWithSameWord'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='subjectiveLanguage'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='unnecessarySyllables'/>
+
+Key | Properties
+------------ | -------------
+Anomaly Name | ModalVerb
+Severity | Major
+Entity | Word
+Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 The default readability rule configuration:
 
