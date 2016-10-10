@@ -7,7 +7,6 @@
 - [Readability Statistics](#id-section2)
 - [Readability Anomalies](#id-section3)
 - [Configuration & Quality Gate](#id-section4)
-- [ToDo](#id-section5)
 
 <div id='id-section01'/>
 # About
