@@ -65,10 +65,12 @@ public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
 
 During an analysis a .docx file is enriched with comments (the readability anomaly findings). The .docx file is then saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by RAT. In case a document is analysed that already has a "-rat.docx" suffix, the **very same** document is altered.
 
+The folder structure of an analysis might look like this:
+
 ![analysis-structure](/doc-images/analysis-structure.PNG)
 
 
-The results of an analysis:
+The results of an analysis in a .docx file:
 
 
 ![results-docx](/doc-images/results-docx.PNG)
