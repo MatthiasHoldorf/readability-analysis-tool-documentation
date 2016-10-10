@@ -217,6 +217,7 @@ Additionaly, RAT detects the occurence of words specified in the keywords sectio
         <keyword>RAT</keyword>
     </keywords>
 ```
+These are listed below the fixed computed statistics:
 
 ![rat-keywords](/doc-images/rat-keywords.PNG)
 
