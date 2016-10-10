@@ -1,4 +1,4 @@
-# Readability Analysis Tool (RAT)
+# Readability Analysis Tool (RAT) – Documentation
 
 ![rat-logo](/doc-images/rat-logo.jpg)
 
