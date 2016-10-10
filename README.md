@@ -366,7 +366,7 @@ First, RAT looks for the configuration at the provided argument (-c or --configu
 
 Based on the conceptional design of the quality gate depicted by SonarQube:
 
-![rat-quality-sonar](/doc-images/rat-quality-sonar.PNG)
+![rat-quality-sonar](/doc-images/sonar-quality-gate.PNG)
 
 We developed a similar quality gate for RAT:
 
