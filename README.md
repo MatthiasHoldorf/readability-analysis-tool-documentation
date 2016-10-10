@@ -16,7 +16,7 @@
 
 RAT is a tool to detect readability anomalies in text based on readability rules.
 
-## Readability Anomalies
+## Anomalies
 
 Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. An example constitutes the following readability rule that detects consecutive fillers in a sentence:
 
@@ -64,7 +64,7 @@ public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
 }
 ```
 
-## Readability Analysis
+## Analysis
 
 During an analysis a .docx file is enriched with comments (the readability anomaly findings). The .docx file is then saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by RAT. In case a document is analysed that already has a "-rat.docx" suffix, the **very same** document is altered.
 
@@ -78,7 +78,7 @@ The results of an analysis in a .docx file:
 
 ![results-docx](/doc-images/results-docx.PNG)
 
-## Readability Report
+## Report
 
 Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas) and stores them in an HTML report next to the analyzed document.
 
@@ -204,6 +204,8 @@ The results are saved in the same directory as the original document with a "rat
 18	| Percentage of Adjectives in Text | 
 19	| Percentage of Conjunctions in Text | 
 20	| Percentage of specified keywords in configuration file | 
+
+The statistics are presented in the HTML report:
 
 ![rat-statistics](/doc-images/rat-statistics.PNG)
 
