@@ -14,7 +14,7 @@
 
 RAT is a tool to detect readability anomalies in text based on readability rules.
 
-Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. An example constitutes the following readability rule:
+Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. An example constitutes the following readability rule that detects consecutive fillers in a sentence:
 
 ```Java
 @TypeCapability(inputs = { "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
