@@ -286,7 +286,7 @@ Positive Examples | Die Programmierer sind in Extreme Programming in allen Techn
  | Der Projektleiter muss folglich zwei Arbeitstage in der Woche am Projekt arbeiten. 
 
 <div id='ConsecutiveFillers'/>
- ## ConsecutiveFillers
+## ConsecutiveFillers
  
 Attribute | Description
 ------------ | -------------
@@ -569,8 +569,8 @@ Entity | Word
 Threshold | 1 match in the text (not configurable)
 Enabled | True
 Word List | beste, höchste, super, unglaublich, wichtigste, wichtigsten
-Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Negative Example | Die Programmierer nehmen die *__wichtigste__* Gruppe ein.
+ | Die Benutzerfreundlichkeit der Software ist die *__beste__* auf dem Markt.
 
 <div id='UnnecessarySyllables'/>
 ## UnnecessarySyllables
