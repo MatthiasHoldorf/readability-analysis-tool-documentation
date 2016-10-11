@@ -258,11 +258,13 @@ Key | Properties
 Anomaly Name | AdjectiveStyle
 Description | Adjectives should only be used if they differniate. If an adjective is not necessary, it should be omitted.
 Severity | Major
-Entity | Part-of-speech
-Threshold | 5 per sentence
 Enabled | True
+Entity | Part-of-speech
+Threshold | 5 matches in one sentence (configurable)
 Negative Example | Die *__schwergewichtigen__*  Prozessmodelle sind durch eine *__detaillierte__* Dokumentation gekennzeichnet, wodurch *__spätere__*  Änderungen an *__vorher definierten__*  Anforderungen nur mit *__hohem__*  Aufwand *__möglich__* sind.
+ | [...] alltägliche Gewohnheiten.
 Positive Example | Die Prozessmodelle sind *__detailliert__* dokumentiert. Anforderungen lassen sich lediglich mit einem *__hohen__* Aufwand ändern.
+ | [...] <s>alltägliche</s> Gewohnheiten.
 
 <div id='ambiguousAdjectivesAndAdverbs'/>
 
@@ -271,15 +273,14 @@ Key | Properties
 Anomaly Name | AmbiguousAdjectivesAndAdverbs
 Description | Ambiguous Adverbs and Adjectives describe imprecise words.
 Severity | Minor
-Entity | Word
-Word List | gewöhnlich, vielleicht, möglicherweise, beinahe, nahezu, annäherend, ziemlich, minimal, maximal
-Threshold | 1 occurrence in the text
 Enabled | True
-Word List | gewöhnlich, vielleicht, möglicherweise, beinahe, nahezu, annäherend, ziemlich, minimal, maximal
+Entity | Word
+Threshold | 1 match in the text  (not configurable)
+Word List | annäherend, beinahe, gewöhnlich, maximal, minimal, möglicherweise, nahezu, optimal, vielleicht, ziemlich
 Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__* allen Techniken und Vorgängen integriert.
  | Der Projektleiter muss folglich *__maximal__* in das Projekt integriert sein.
 Positive Examples | Die Programmierer sind in Extreme Programming in allen Techniken und Vorgängen integriert, außer [...] 
- | Der Projektleiter muss folglich zwei Arbeitstage Vollzeit am Projekt arbeiten. 
+ | Der Projektleiter muss folglich zwei Arbeitstage in der Woche am Projekt arbeiten. 
 
 <div id='consecutiveFillers'/>
  
@@ -288,115 +289,146 @@ Key | Properties
 Anomaly Name | ConsecutiveFillers
 Description | Two consecutive fillers inflate a sentence.
 Severity | Minor
+Enabled | True
 Entity | Word
+Threshold | 2 consecutive matches in the text (not configurable)
 Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, allenthalben, allerdings, allesamt, allzu, also, andauernd, andererseits, andernfalls, anscheinend, an sich, auch, auffallend, aufs Neue, augenscheinlich, ausdrücklich, ausgerechnet, ausnahmslos, außerdem, äußerst, beinahe, bei weitem, bekanntlich, bereits, besonders, bestenfalls, bestimmt, bloß, dabei, dafür, dagegen, daher, damals, danach, dann und wann, demgegenüber, demgemäß, demnach, denkbar, denn, dennoch, deshalb, des Öfteren, des ungeachtet, deswegen, doch, durchaus, durchweg, eben, eigentlich, ein bisschen, einerseits, einfach, einige, einigermaßen, einmal, ein wenig, ergo, erheblich, etliche, etwa, etwas, fast, folgendermaßen, folglich, förmlich, fortwährend, fraglos, freilich, ganz, ganz und gar, gänzlich, gar, gelegentlich, gemeinhin, genau, geradezu, gewiss, gewissermaßen, glatt, gleichsam, gleichwohl, glücklicherweise, gottseidank, größtenteils, halt, häufig, hingegen, hinlänglich, höchst, höchstens, im Allgemeinen, immer, immerhin, immerzu, in der Tat, indessen, in diesem Zusammenhang, infolgedessen, insbesondere, inzwischen, irgend, irgendein, irgendjemand, irgendwann, irgendwie, irgendwo, ja, je, jedenfalls, jedoch, jemals, kaum, keinesfalls, keineswegs, längst, lediglich, leider, letztlich, manchmal, mehr oder weniger, meines Erachtens, meinetwegen, meist, meistens, meistenteils, mindestens, mithin, mitunter, möglicherweise, möglichst, nämlich, naturgemäß, natürlich, neuerdings, neuerlich, neulich, nichtsdestoweniger, nie, niemals, nun, nur, offenbar, offenkundig, offensichtlich, oft, ohnedies, ohne weiteres, ohne Zweifel, partout, plötzlich, praktisch, quasi, recht, reichlich, reiflich, relativ, restlos, richtiggehend, rundheraus, rundum, samt und sonders, sattsam, schlicht, schlichtweg, schließlich, schlussendlich, schon, sehr, selbst, selbstredend, selbstverständlich, selten, seltsamerweise, sicher, sicherlich, so, sogar, sonst, sowieso, sowohl als auch, sozusagen, stellenweise, stets, trotzdem, überaus, überdies, überhaupt, übrigens, umständehalber, unbedingt, unerhört, ungefähr, ungemein, ungewöhnlich, ungleich, unglücklicherweise, unlängst, unsagbar, unsäglich, unstreitig, unzweifelhaft, vermutlich, vielfach, vielleicht, voll, vollends, völlig, vollkommen, voll und ganz, von neuem, wahrscheinlich, weidlich, weitgehend, wenigstens, wieder, wiederum, wirklich, wohl, wohlgemerkt, womöglich, ziemlich, zudem, zugegeben, zumeist, zusehends, zuweilen, zweifellos, zweifelsfrei, zweifelsohne
-Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich fortwährend__*  zu.
+Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich fortwährend__* zu.
  | In einem Projekt sollten *__daher stets__* alle dieser Techniken angewandt werden.
  | Letzteres ist allerdings nicht im Sinne des unden und *__sollte daher__* selten praktiziert werden.
  | Diese Art der Kommunikation und Planung funktioniert *__allerdings nur__* bis zu einem bestimmten Grad.
-Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich <s>fortwährend</s>__*  zu.
+Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich <s>fortwährend</s>__* zu.
  | In einem Projekt sollten *__daher <s>stets</s>__* alle dieser Techniken angewandt werden.
  | Letzteres ist <s>allerdings</s> nicht im Sinne des Kunden und *__sollte <s>daher</s>__* selten praktiziert werden.
  | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
+
 <div id='consecutivePrepositions'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | ConsecutivePrepositions
+Description | Two consecutive spatial expressions (prepositions) most likely irritate a reader.
+Severity | Minor
+Enabled | True
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 2 consecutive matches in the text (not configurable)
+Word List | auf, an, hinter, in, neben, über, unter, vor, zwischen
+Negative Example | Wir geben nichts *__auf unter__* Druck zustande gekommene Verträge.
+Positive Example | Wir geben nichts Verträge die unter Druck zustande gekommen sind.
 
 <div id='doubleNegative'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
+Anomaly Name | DoubleNegative
+Description | Double negation in a sentence makes it hard to capture its meaning.
 Severity | Major
+Enabled | True
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 2 matches in one sentence (configurable)
+Word List | ausnahmslos, außer, kein, keinerlei, keinesfalls, keineswegs, mitnichten, nein, nicht, nichtig, nichts, nie, niemals, niemand, nimmer, nirgends, nirgendwo, ohne, unterlegen, ablehnen, entfernen, ignorieren, verbieten, verbot, verbots, verbotes, vermeiden, weglassen
+Negative Example | Das Schreiben von Tests ist zwar wichtig, sollte jedoch *__nicht__* verpflichtend für Funktionen sein, die *__nicht__* öffentlich sichtbar sind.
+ | Eine erzwungene Verantwortung führt *__nicht__* zu diesem Effekt und ist daher *__nicht__* erwünscht.
+Positive Example | Das Schreiben von Tests ist wichtig. Das Testen privater Methoden sollte nicht verpflichtend sein.
+ | Eine erzwungene Verantwortung erzielt nicht den gewüschten Effekt.
 
 <div id='filler'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | Fillers
+Description | Unnecessary words, e.g. fillers, inflate a sentence.
+Severity | Minor
+Enabled | False
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 1 match in the text (not configurable)
+Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, allenthalben, allerdings, allesamt, allzu, also, andauernd, andererseits, andernfalls, anscheinend, an sich, auch, auffallend, aufs Neue, augenscheinlich, ausdrücklich, ausgerechnet, ausnahmslos, außerdem, äußerst, beinahe, bei weitem, bekanntlich, bereits, besonders, bestenfalls, bestimmt, bloß, dabei, dafür, dagegen, daher, damals, danach, dann und wann, demgegenüber, demgemäß, demnach, denkbar, denn, dennoch, deshalb, des Öfteren, des ungeachtet, deswegen, doch, durchaus, durchweg, eben, eigentlich, ein bisschen, einerseits, einfach, einige, einigermaßen, einmal, ein wenig, ergo, erheblich, etliche, etwa, etwas, fast, folgendermaßen, folglich, förmlich, fortwährend, fraglos, freilich, ganz, ganz und gar, gänzlich, gar, gelegentlich, gemeinhin, genau, geradezu, gewiss, gewissermaßen, glatt, gleichsam, gleichwohl, glücklicherweise, gottseidank, größtenteils, halt, häufig, hingegen, hinlänglich, höchst, höchstens, im Allgemeinen, immer, immerhin, immerzu, in der Tat, indessen, in diesem Zusammenhang, infolgedessen, insbesondere, inzwischen, irgend, irgendein, irgendjemand, irgendwann, irgendwie, irgendwo, ja, je, jedenfalls, jedoch, jemals, kaum, keinesfalls, keineswegs, längst, lediglich, leider, letztlich, manchmal, mehr oder weniger, meines Erachtens, meinetwegen, meist, meistens, meistenteils, mindestens, mithin, mitunter, möglicherweise, möglichst, nämlich, naturgemäß, natürlich, neuerdings, neuerlich, neulich, nichtsdestoweniger, nie, niemals, nun, nur, offenbar, offenkundig, offensichtlich, oft, ohnedies, ohne weiteres, ohne Zweifel, partout, plötzlich, praktisch, quasi, recht, reichlich, reiflich, relativ, restlos, richtiggehend, rundheraus, rundum, samt und sonders, sattsam, schlicht, schlichtweg, schließlich, schlussendlich, schon, sehr, selbst, selbstredend, selbstverständlich, selten, seltsamerweise, sicher, sicherlich, so, sogar, sonst, sowieso, sowohl als auch, sozusagen, stellenweise, stets, trotzdem, überaus, überdies, überhaupt, übrigens, umständehalber, unbedingt, unerhört, ungefähr, ungemein, ungewöhnlich, ungleich, unglücklicherweise, unlängst, unsagbar, unsäglich, unstreitig, unzweifelhaft, vermutlich, vielfach, vielleicht, voll, vollends, völlig, vollkommen, voll und ganz, von neuem, wahrscheinlich, weidlich, weitgehend, wenigstens, wieder, wiederum, wirklich, wohl, wohlgemerkt, womöglich, ziemlich, zudem, zugegeben, zumeist, zusehends, zuweilen, zweifellos, zweifelsfrei, zweifelsohne
+Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich fortwährend__* zu.
+ | Diese Art der Kommunikation und Planung funktioniert *__allerdings nur__* bis zu einem bestimmten Grad.
+Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich <s>fortwährend</s>__* zu.
+ | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
 
 <div id='fillerSentence'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
+Anomaly Name | FillersSentence
+Description | Many unnecessary words, e.g. fillers, inflate a sentence.
 Severity | Major
+Enabled | True
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 3 matches in one sentence (configurable)
+Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, allenthalben, allerdings, allesamt, allzu, also, andauernd, andererseits, andernfalls, anscheinend, an sich, auch, auffallend, aufs Neue, augenscheinlich, ausdrücklich, ausgerechnet, ausnahmslos, außerdem, äußerst, beinahe, bei weitem, bekanntlich, bereits, besonders, bestenfalls, bestimmt, bloß, dabei, dafür, dagegen, daher, damals, danach, dann und wann, demgegenüber, demgemäß, demnach, denkbar, denn, dennoch, deshalb, des Öfteren, des ungeachtet, deswegen, doch, durchaus, durchweg, eben, eigentlich, ein bisschen, einerseits, einfach, einige, einigermaßen, einmal, ein wenig, ergo, erheblich, etliche, etwa, etwas, fast, folgendermaßen, folglich, förmlich, fortwährend, fraglos, freilich, ganz, ganz und gar, gänzlich, gar, gelegentlich, gemeinhin, genau, geradezu, gewiss, gewissermaßen, glatt, gleichsam, gleichwohl, glücklicherweise, gottseidank, größtenteils, halt, häufig, hingegen, hinlänglich, höchst, höchstens, im Allgemeinen, immer, immerhin, immerzu, in der Tat, indessen, in diesem Zusammenhang, infolgedessen, insbesondere, inzwischen, irgend, irgendein, irgendjemand, irgendwann, irgendwie, irgendwo, ja, je, jedenfalls, jedoch, jemals, kaum, keinesfalls, keineswegs, längst, lediglich, leider, letztlich, manchmal, mehr oder weniger, meines Erachtens, meinetwegen, meist, meistens, meistenteils, mindestens, mithin, mitunter, möglicherweise, möglichst, nämlich, naturgemäß, natürlich, neuerdings, neuerlich, neulich, nichtsdestoweniger, nie, niemals, nun, nur, offenbar, offenkundig, offensichtlich, oft, ohnedies, ohne weiteres, ohne Zweifel, partout, plötzlich, praktisch, quasi, recht, reichlich, reiflich, relativ, restlos, richtiggehend, rundheraus, rundum, samt und sonders, sattsam, schlicht, schlichtweg, schließlich, schlussendlich, schon, sehr, selbst, selbstredend, selbstverständlich, selten, seltsamerweise, sicher, sicherlich, so, sogar, sonst, sowieso, sowohl als auch, sozusagen, stellenweise, stets, trotzdem, überaus, überdies, überhaupt, übrigens, umständehalber, unbedingt, unerhört, ungefähr, ungemein, ungewöhnlich, ungleich, unglücklicherweise, unlängst, unsagbar, unsäglich, unstreitig, unzweifelhaft, vermutlich, vielfach, vielleicht, voll, vollends, völlig, vollkommen, voll und ganz, von neuem, wahrscheinlich, weidlich, weitgehend, wenigstens, wieder, wiederum, wirklich, wohl, wohlgemerkt, womöglich, ziemlich, zudem, zugegeben, zumeist, zusehends, zuweilen, zweifellos, zweifelsfrei, zweifelsohne
+Negative Example | In einem Projekt sollten *__daher__* *__stets__* alle dieser Techniken angewandt werden, da *__andernfalls__* keine optimale Wirkung erzielt werden kann.
+Positive Example | In einem Projekten sollten <s>*__daher__* *__stets__*</s> alle diese Techniken angewandt werden, da andernfalls keine Wirkung erzielt wird.
 
 <div id='indirectSpeech'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | IndirectSpeech
+Description | Indirect speech should be avoided, since it is not clear who the actor in the sentence is.
+Severity | Minor
+Enabled | False
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 1 match in the text (not configurable)
+Word List | man
+Negative Example | Die Rollen im Extrem Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__man__* löst sich von Gewohnheiten.
+Positive Example | Die Rollen im Extrem Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__die Teammitglieder__* lösen sich von Gewohnheiten.
 
 <div id='leadingAttributes'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | LeadingAttributes
+Description | If there are too many words between the article of a noun and the noun itself, the reader's short-term memory might forget the article. This likely results in a repeated read.
+Severity | Minor
+Enabled | False
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 4 words between article and noun (configurable)
+Word List | man
+Negative Example | Die Programmierung erfolgt in *__einem__* sowohl freien, als auch stark kontrollierten *__Stil__*.
+ | *__Ein schleichender__*, von den Nutzern typischerweise durch Aussagen wie „Das ist so langsam“ oder „Die Zahlen taugen nichts“ kommunizierter *__Qualitätsverlust__*.
+Positive Example | Die Programmierung erfolgt in *__einem Stil__*, der frei und zugleich stark kontrolliert ist.
+ | *__Ein schleichender__* *__Qualitätsverlust__*, der von den Nutzern typischerweise durch Aussagen wie „Das ist so langsam“ oder „Die Zahlen taugen nichts“ kommunizierter wird.
 
 <div id='longSentence'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | LongSentence
+Description | Long sentences tend to carry too much information and should be avoided. 
+Severity | Critical
+Enabled | True
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 30 words in a sentence
+Negative Example | Stellt das Team fest, dass es für die aktuelle Iteration nicht alle zuvor festgelegten Funktionen umsetzten kann, sollte mit der Geschäftsseite (speziell dem Kunden) eine Auswahl der Funktionen der aktuellen Storycards erfolgen, die für diese Iteration unbedingt erfüllt werden sollten.
+Positive Example | Wenn in der aktuellen Iteration nicht alle Funktionen vom Team umgesetzt werden können, sollte der Kunde kontaktiert werden. Das Team und der Kunde treffen dann eine Auswahl der Funktionen die in der Iteration umgesetzt werden sollen.
 
 <div id='longWord'/>
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | LongWord
+Description | Words with many syllables tend to be unfamiliar and harder to understand.
+Severity | Critical
+Enabled | True
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 8 syllables (configurable)
+Negative Example | In diesem Fall schließt sich eine *__Dokumentationserstellung__* an, die für zukünftige Veränderungen der Software einen leichten Einstieg ermöglichen.
+Positive Example | In diesem Fall wird eine Dokumentation erstellt, die für zukünftige Veränderungen der Software einen leichten Einstieg ermöglicht.
 
 <div id='modalVerb'/>
 
 Key | Properties
 ------------ | -------------
 Anomaly Name | ModalVerb
-Severity | Major
+Description | With modal verbs, critical statements can be mitigated.
+Severity | Minor
 Entity | Word
-Threshold | 1
+Threshold | 1 (not configurable)
 Enabled | False
-Word List | dürfte, dürfen, könnte, könnten, können, möchte, möchten, mögen, müsste, müssten, müssen, sollte, sollen, wollte, wollten, wollen
-Explanation | Mit Modalverben lassen sich kritische Aussagen abschwächen.
+Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
@@ -404,12 +436,15 @@ Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigge
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | ModalVerbSentence
+Description | With modal verbs, critical statements can be mitigated.
+Severity | Minor
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 2 matches in one sentence (configurable)
+Enabled | False
+Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
+Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='nestedSentence'/>
 
