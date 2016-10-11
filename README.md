@@ -284,7 +284,7 @@ Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__
 Positive Examples | Die Programmierer sind in Extreme Programming in allen Techniken und Vorgängen integriert, außer [...] 
  | Der Projektleiter muss folglich zwei Arbeitstage in der Woche am Projekt arbeiten. 
 
-<div id='cutiveFillers'/>
+<div id='consecutiveFillers'/>
  ## ConsecutiveFillers
  
 Attribute | Description
@@ -321,7 +321,7 @@ Negative Example | Wir geben nichts *__auf unter__* Druck zustande gekommene Ver
 Positive Example | Wir geben nichts Verträge die unter Druck zustande gekommen sind.
 
 <div id='doubleNegative'/>
- ## DoubleNegative
+## DoubleNegative
  
 Attribute | Description
 ------------ | -------------
@@ -338,6 +338,7 @@ Positive Example | Das Schreiben von Tests ist wichtig. Das Testen privater Meth
  | Eine erzwungene Verantwortung erzielt nicht den gewüschten Effekt.
 
 <div id='filler'/>
+## Fillers
 
 Attribute | Description
 ------------ | -------------
@@ -354,7 +355,8 @@ Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__f
  | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
 
 <div id='fillerSentence'/>
-
+## FillersSentence
+ 
 Attribute | Description
 ------------ | -------------
 Anomaly Name | FillersSentence
@@ -368,7 +370,8 @@ Negative Example | In einem Projekt sollten *__daher__* *__stets__* alle dieser 
 Positive Example | In einem Projekten sollten <s>*__daher__* *__stets__*</s> alle diese Techniken angewandt werden, da andernfalls keine Wirkung erzielt wird.
 
 <div id='indirectSpeech'/>
-
+## IndirectSpeech
+ 
 Attribute | Description
 ------------ | -------------
 Anomaly Name | IndirectSpeech
@@ -382,7 +385,8 @@ Negative Example | Die Rollen im Extreme Programming können getauscht werden. D
 Positive Example | Die Rollen im Extreme Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__die Teammitglieder__* lösen sich von Gewohnheiten.
 
 <div id='leadingAttributes'/>
-
+## LeadingAttributes
+ 
 Attribute | Description
 ------------ | -------------
 Anomaly Name | LeadingAttributes
@@ -398,6 +402,7 @@ Positive Example | Die Programmierung erfolgt in *__einem Stil__*, der frei und 
  | *__Ein schleichender__* *__Qualitätsverlust__*, der von den Nutzern typischerweise durch Aussagen wie „Das ist so langsam“ oder „Die Zahlen taugen nichts“ kommunizierter wird.
 
 <div id='longSentence'/>
+## LongSentence
 
 Attribute | Description
 ------------ | -------------
@@ -411,6 +416,7 @@ Negative Example | Stellt das Team fest, dass es für die aktuelle Iteration nic
 Positive Example | Wenn in der aktuellen Iteration nicht alle Funktionen vom Team umgesetzt werden können, sollte der Kunde kontaktiert werden. Das Team und der Kunde treffen dann eine Auswahl der Funktionen die in der Iteration umgesetzt werden sollen.
 
 <div id='longWord'/>
+## LongWord
 
 Attribute | Description
 ------------ | -------------
@@ -424,6 +430,7 @@ Negative Example | In diesem Fall schließt sich eine *__Dokumentationserstellun
 Positive Example | In diesem Fall wird eine Dokumentation erstellt, die für zukünftige Veränderungen der Software einen leichten Einstieg ermöglicht.
 
 <div id='modalVerb'/>
+## ModalVerb
 
 Attribute | Description
 ------------ | -------------
@@ -438,107 +445,131 @@ Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig 
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='modalVerbSentence'/>
+## ModalVerbSentence
 
 Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerbSentence
-Description | With modal verbs, critical statements can be mitigated.
+Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
 Severity | Minor
 Entity | Word
 Threshold | 2 matches in one sentence (configurable)
-Enabled | False
+Enabled | True
 Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='nestedSentence'/>
+## NestedSentence
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
-Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Anomaly Name | NestedSentence
+Description | Nested sentence constructions hinder a reader to quickly understand a sentence.
+Severity | Critical
+Entity | Part-of-speech
+Threshold | 6 matches of conjunctions or delimiters in one sentence (configurable)
+Enabled | True
 
 <div id='nestedSentenceConjunction'/>
+## NestedSentenceConjunction
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
+Anomaly Name | NestedSentenceConjunction
+Description | Nested sentence constructions hinder a reader to quickly understand a sentence.
 Severity | Major
-Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Entity | Part-of-speech
+Threshold | 3 matches of conjunctions in one sentence (configurable)
+Enabled | False
 
 <div id='nestedSentenceDelimiter'/>
+## NestedSentenceDelimiter
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
+Anomaly Name | NestedSentenceDelimiter
+Description | Nested sentence constructions hinder a reader to quickly understand a sentence.
 Severity | Major
-Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Entity | Token
+Threshold | 3 matches of delimiters in one sentence (configurable)
+Enabled | False
 
 <div id='nominalStyle'/>
+## NominalStyle
 
 Attribute | Description
 ------------ | -------------
 Anomaly Name | NominalStyle
-Severity | Critical
+Description | Too many abstract nouns in one sentence should be avoided.
+Severity | Major
 Entity | Word
-Explanation | Sätze im Nominalstil sind durch Nomen (Substantive) und Substantivierungen geprägt. Die Verwendung entsprechender Begriffe ist nicht per se falsch oder unschön – es kommt vielmehr auf die Häufung an. Werden Sätze oder gar ganze Texte mit Substantivierungen im Stil von „das Hervorrufen“, „das Aufzeigen“ oder „die Verursachung“ übersät, leidet die Lesbarkeit.
-Incorrect Example | Folglich stiegen die *__Hoffnungen__*, dass die Bewältigung der kommenden *__Herausforderungen__* und die *__Anpassung__* der *__Wirtschaftsordnung__* an die veränderten *__Rahmenbedingungen__* des globalen Wettbewerbs gelingen würden.
-Correct Example | Folglich stieg die *__Hoffnung__*, dass es gelingen würde, die kommenden Probleme zu lösen und die Wirtschaft den veränderten *__Bedingungen__*  des globalen Wettbewerbs anzupassen. 
+Threshold | 3 matches in one sentence (configurable)
+Enabled | True
+Word List | heit, heiten, keit, keiten, ung, ungen (word ends with)
+Negative Example | In der Software-Entwicklung dienen Prozessmodelle der Festlegung des Vorgehens und des Ablaufs zur Erstellung einer Software.
+ | Diese fehlende Flexibilität führte zur Entwicklung von leichtgewichtigen, agilen Prozessmodellen, die von Änderungen der Anforderungen während des Projektes ausgehen.
+Positive Example | 
 
 <div id='passiveVoice'/>
+## PassiveVoice
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
+Anomaly Name | NestedSentence
+Description | Sentence in passive voice tend to be longer and hide the actor of a sentence.
 Severity | Major
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
-
+Threshold | 1 match in a sentence (not configurable)
+Enabled | True
+Word List | 
+Negative Example | 
+Positive Example | 
 
 <div id='sentencesStartWithSameWord'/>
+## SentencesStartWithSameWord
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | SentencesStartWithSameWord
+Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
+Severity | Minor
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 2 matches in successive sentence (configurable)
+Enabled | True
+Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
+Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='subjectiveLanguage'/>
+## SubjectiveLanguage
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | subjectiveLanguage
+Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
+Severity | Minor
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 2 matches in one sentence (configurable)
+Enabled | True
+Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
+Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='unnecessarySyllables'/>
+## UnnecessarySyllables
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | UnnecessarySyllables
+Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
+Severity | Minor
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Threshold | 2 matches in one sentence (configurable)
+Enabled | True
+Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
+Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 The default readability rule configuration:
 
