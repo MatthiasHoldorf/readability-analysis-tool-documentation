@@ -255,15 +255,14 @@ The annotated .docx file is saved in the same directory as the original document
 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
+Anomaly Name | AdjectiveStyle
+Description | Adjectives should only be used if they are necesarry and differniate.
 Severity | Major
-Entity | Word
-Threshold | 1
-Enabled | False
-Word List | dürfte, dürfen, könnte, könnten, können, möchte, möchten, mögen, müsste, müssten, müssen, sollte, sollen, wollte, wollten, wollen
-Explanation | Mit Modalverben lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Entity | Part-of-speech
+Threshold | 5
+Enabled | True
+Negative Example | Die *__schwergewichtigen__*  Prozessmodelle sind durch eine *__detaillierte__* Dokumentation gekennzeichnet, wodurch *__spätere__*  Änderungen an vorher *__definierten__*  Anforderungen nur mit *__hohem__*  Aufwand *__möglich__* sind.
+Positive Example | Die Prozessmodelle sind *__detailliert__* dokumentiert. Anforderungen lassen sich lediglich mit einem *__hohen__* Aufwand ändern.
 
 <div id='ambiguousAdjectivesAndAdverbs'/>
 
@@ -384,10 +383,10 @@ Severity | Major
 Entity | Word
 Threshold | 1
 Enabled | False
-Word List | dürfte, dürften, dürfen, könnte, könnten, können, möchte, möchten, mögen, müsste, müssten, müssen, sollte, sollten, sollen, wollte, wollten, wollen
-Explanation | Mit Modalverben lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Word List | dürfte, dürfen, könnte, könnten, können, möchte, möchten, mögen, müsste, müssten, müssen, sollte, sollen, wollte, wollten, wollen
+Explanation | Mit Modalverben lassen sich kritische Aussagen abschwächen.
+Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='modalVerbSentence'/>
 
