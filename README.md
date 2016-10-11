@@ -507,7 +507,7 @@ Entity | Word
 Threshold | 3 matches in one sentence (configurable)
 Enabled | True
 Word List | heit, heiten, keit, keiten, ung, ungen (word ends with)
-Negative Example | In der *__Software-Entwicklung__* dienen Prozessmodelle der *___Festlegung__* des Vorgehens und des Ablaufs zur *___Erstellung__* einer Software.
+Negative Example | In der *__Software-Entwicklung__* dienen Prozessmodelle der *__Festlegung__* des Vorgehens und des Ablaufs zur *__Erstellung__* einer Software.
  | Diese fehlende Flexibilität führte zur *__Entwicklung__* von leichtgewichtigen, agilen Prozessmodellen, die von *__Änderungen__* der *__Anforderungen__* während des Projektes ausgehen.
 Positive Example | In der *__Software-Entwicklung__* legen Prozessmodelle den Ablauf zur *__Erstellung__* von Software fest.
  | Durch die fehlende Flexibilität sind agile Prozessmodelle entstanden. Diese Modelle gehen von sich ändernden *__Anforderungen__* aus.
