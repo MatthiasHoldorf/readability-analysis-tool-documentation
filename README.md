@@ -229,29 +229,30 @@ RAT detects the below listed readability anomalies and annotates them as comment
 The annotated .docx file is saved in the same directory as the original document with a "-rat.docx" suffix, e.g. "{filename}-rat.{file-extension}".
 
 ## Implemented Readability Anomalies
-- [AdjectiveStyle](#adjectiveStyle)          
-- [AmbiguousAdjectivesAndAdverbs](#ambiguousAdjectivesAndAdverbs)
-- [ConsecutiveFillers](#consecutiveFillers)
-- [ConsecutivePrepositions](#consecutivePrepositions)
-- [DoubleNegative](#doubleNegative)
-- [Filler](#filler)
-- [FillerSentence](#fillerSentence)
-- [IndirectSpeech](#indirectSpeech)
-- [LeadingAttributes](#leadingAttributes)
-- [LongSentence](#longSentence)
-- [LongWord](#longWord)
-- [ModalVerb](#modalVerb)
-- [ModalVerbSentence](#modalVerbSentence)
-- [NestedSentence](#nestedSentence)
-- [NestedSentenceConjunction](#nestedSentenceConjunction)
-- [NestedSentenceDelimiter](#nestedSentenceDelimiter)
-- [NominalStyle](#nominalStyle)
-- [PassiveVoice](#passiveVoice)
-- [SentencesStartWithSameWord](#sentencesStartWithSameWord)
-- [SubjectiveLanguage](#subjectiveLanguage)
-- [UnnecessarySyllables](#unnecessarySyllables)
+- [AdjectiveStyle](#AdjectiveStyle)          
+- [AmbiguousAdjectivesAndAdverbs](#AmbiguousAdjectivesAndAdverbs)
+- [ConsecutiveFillers](#ConsecutiveFillers)
+- [ConsecutivePrepositions](#ConsecutivePrepositions)
+- [DoubleNegative](#DoubleNegative)
+- [Filler](#Filler)
+- [FillerSentence](#FillerSentence)
+- [IndirectSpeech](#IndirectSpeech)
+- [LeadingAttributes](#LeadingAttributes)
+- [LongSentence](#LongSentence)
+- [LongWord](#LongWord)
+- [ModalVerb](#ModalVerb)
+- [ModalVerbSentence](#ModalVerbSentence)
+- [NestedSentence](#NestedSentence)
+- [NestedSentenceConjunction](#NestedSentenceConjunction)
+- [NestedSentenceDelimiter](#NestedSentenceDelimiter)
+- [NominalStyle](#NominalStyle)
+- [PassiveVoice](#PassiveVoice)
+- [SentencesStartWithSameWord](#SentencesStartWithSameWord)
+- [SubjectiveLanguage](#SubjectiveLanguage)
+- [Superlatives](#Superlatives)
+- [UnnecessarySyllables](#UnnecessarySyllables)
 
-<div id='adjectiveStyle'/>
+<div id='AdjectiveStyle'/>
 ## AdjectiveStyle
 
 Attribute | Description
@@ -267,7 +268,7 @@ Negative Example | Die *__schwergewichtigen__*  Prozessmodelle sind durch eine *
 Positive Example | Die Prozessmodelle sind *__detailliert__* dokumentiert. Anforderungen lassen sich lediglich mit einem *__hohen__* Aufwand ändern.
  | [...] <s>alltägliche</s> Gewohnheiten.
 
-<div id='ambiguousAdjectivesAndAdverbs'/>
+<div id='AmbiguousAdjectivesAndAdverbs'/>
 ## AmbiguousAdjectivesAndAdverbs
 
 Attribute | Description
@@ -284,7 +285,7 @@ Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__
 Positive Examples | Die Programmierer sind in Extreme Programming in allen Techniken und Vorgängen integriert, außer [...] 
  | Der Projektleiter muss folglich zwei Arbeitstage in der Woche am Projekt arbeiten. 
 
-<div id='consecutiveFillers'/>
+<div id='ConsecutiveFillers'/>
  ## ConsecutiveFillers
  
 Attribute | Description
@@ -305,7 +306,7 @@ Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__f
  | Letzteres ist <s>allerdings</s> nicht im Sinne des Kunden und *__sollte <s>daher</s>__* selten praktiziert werden.
  | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
 
-<div id='consecutivePrepositions'/>
+<div id='ConsecutivePrepositions'/>
 ## ConsecutivePrepositions
 
 Attribute | Description
@@ -320,7 +321,7 @@ Word List | auf, an, hinter, in, neben, über, unter, vor, zwischen
 Negative Example | Wir geben nichts *__auf unter__* Druck zustande gekommene Verträge.
 Positive Example | Wir geben nichts Verträge die unter Druck zustande gekommen sind.
 
-<div id='doubleNegative'/>
+<div id='DoubleNegative'/>
 ## DoubleNegative
  
 Attribute | Description
@@ -337,7 +338,7 @@ Negative Example | Das Schreiben von Tests ist zwar wichtig, sollte jedoch *__ni
 Positive Example | Das Schreiben von Tests ist wichtig. Das Testen privater Methoden sollte nicht verpflichtend sein.
  | Eine erzwungene Verantwortung erzielt nicht den gewüschten Effekt.
 
-<div id='filler'/>
+<div id='Filler'/>
 ## Fillers
 
 Attribute | Description
@@ -354,7 +355,7 @@ Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__f
 Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich <s>fortwährend</s>__* zu.
  | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
 
-<div id='fillerSentence'/>
+<div id='FillerSentence'/>
 ## FillersSentence
  
 Attribute | Description
@@ -369,7 +370,7 @@ Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, a
 Negative Example | In einem Projekt sollten *__daher__* *__stets__* alle dieser Techniken angewandt werden, da *__andernfalls__* keine optimale Wirkung erzielt werden kann.
 Positive Example | In einem Projekten sollten <s>*__daher__* *__stets__*</s> alle diese Techniken angewandt werden, da andernfalls keine Wirkung erzielt wird.
 
-<div id='indirectSpeech'/>
+<div id='IndirectSpeech'/>
 ## IndirectSpeech
  
 Attribute | Description
@@ -384,7 +385,7 @@ Word List | man
 Negative Example | Die Rollen im Extreme Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__man__* löst sich von Gewohnheiten.
 Positive Example | Die Rollen im Extreme Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__die Teammitglieder__* lösen sich von Gewohnheiten.
 
-<div id='leadingAttributes'/>
+<div id='LeadingAttributes'/>
 ## LeadingAttributes
  
 Attribute | Description
@@ -401,7 +402,7 @@ Negative Example | Die Programmierung erfolgt in *__einem__* sowohl freien, als 
 Positive Example | Die Programmierung erfolgt in *__einem Stil__*, der frei und zugleich stark kontrolliert ist.
  | *__Ein schleichender__* *__Qualitätsverlust__*, der von den Nutzern typischerweise durch Aussagen wie „Das ist so langsam“ oder „Die Zahlen taugen nichts“ kommunizierter wird.
 
-<div id='longSentence'/>
+<div id='LongSentence'/>
 ## LongSentence
 
 Attribute | Description
@@ -415,7 +416,7 @@ Threshold | 30 words in a sentence
 Negative Example | Stellt das Team fest, dass es für die aktuelle Iteration nicht alle zuvor festgelegten Funktionen umsetzten kann, sollte mit der Geschäftsseite (speziell dem Kunden) eine Auswahl der Funktionen der aktuellen Storycards erfolgen, die für diese Iteration unbedingt erfüllt werden sollten.
 Positive Example | Wenn in der aktuellen Iteration nicht alle Funktionen vom Team umgesetzt werden können, sollte der Kunde kontaktiert werden. Das Team und der Kunde treffen dann eine Auswahl der Funktionen die in der Iteration umgesetzt werden sollen.
 
-<div id='longWord'/>
+<div id='LongWord'/>
 ## LongWord
 
 Attribute | Description
@@ -429,7 +430,7 @@ Threshold | 8 syllables (configurable)
 Negative Example | In diesem Fall schließt sich eine *__Dokumentationserstellung__* an, die für zukünftige Veränderungen der Software einen leichten Einstieg ermöglichen.
 Positive Example | In diesem Fall wird eine Dokumentation erstellt, die für zukünftige Veränderungen der Software einen leichten Einstieg ermöglicht.
 
-<div id='modalVerb'/>
+<div id='ModalVerb'/>
 ## ModalVerb
 
 Attribute | Description
@@ -444,7 +445,7 @@ Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, mö
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
-<div id='modalVerbSentence'/>
+<div id='ModalVerbSentence'/>
 ## ModalVerbSentence
 
 Attribute | Description
@@ -459,7 +460,7 @@ Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, mö
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
-<div id='nestedSentence'/>
+<div id='NestedSentence'/>
 ## NestedSentence
 
 Attribute | Description
@@ -471,7 +472,7 @@ Entity | Part-of-speech
 Threshold | 6 matches of conjunctions or delimiters in one sentence (configurable)
 Enabled | True
 
-<div id='nestedSentenceConjunction'/>
+<div id='NestedSentenceConjunction'/>
 ## NestedSentenceConjunction
 
 Attribute | Description
@@ -483,7 +484,7 @@ Entity | Part-of-speech
 Threshold | 3 matches of conjunctions in one sentence (configurable)
 Enabled | False
 
-<div id='nestedSentenceDelimiter'/>
+<div id='NestedSentenceDelimiter'/>
 ## NestedSentenceDelimiter
 
 Attribute | Description
@@ -495,7 +496,7 @@ Entity | Token
 Threshold | 3 matches of delimiters in one sentence (configurable)
 Enabled | False
 
-<div id='nominalStyle'/>
+<div id='NominalStyle'/>
 ## NominalStyle
 
 Attribute | Description
@@ -512,7 +513,7 @@ Negative Example | In der *__Software-Entwicklung__* dienen Prozessmodelle der *
 Positive Example | In der *__Software-Entwicklung__* legen Prozessmodelle den Ablauf zur *__Erstellung__* von Software fest.
  | Durch die fehlende Flexibilität sind agile Prozessmodelle entstanden. Diese Modelle gehen von sich ändernden *__Anforderungen__* aus.
 
-<div id='passiveVoice'/>
+<div id='PassiveVoice'/>
 ## PassiveVoice
 
 Attribute | Description
@@ -529,7 +530,7 @@ Negative Example | Das Projekt *__wurde__* mit einem schwergewichtigen Prozessmo
 Positive Example | Das Projekt began mit einem schwergewichtigen Prozessmodell und drohte zu scheitern.
  | Die Software wird deployed, wenn ein Entwickler eine Task einer Storycard fertigestellt.
 
-<div id='sentencesStartWithSameWord'/>
+<div id='SentencesStartWithSameWord'/>
 ## SentencesStartWithSameWord
 
 Attribute | Description
@@ -541,12 +542,12 @@ Entity | Word
 Threshold | 2 matches in successive sentence (configurable)
 Enabled | True
 
-<div id='subjectiveLanguage'/>
+<div id='SubjectiveLanguage'/>
 ## SubjectiveLanguage
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | subjectiveLanguage
+Anomaly Name | SubjectiveLanguage
 Description | Words with semantics that are not objectively defined should be avoided. Such words leave room for misinterpretation.
 Severity | Minor
 Entity | Word
@@ -556,7 +557,22 @@ Word List | benutzerfreundlich, Benutzerfreundlichkeit, ein bisschen, einfach zu
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
-<div id='unnecessarySyllables'/>
+<div id='Superlatives'/>
+## Superlatives
+
+Attribute | Description
+------------ | -------------
+Anomaly Name | Superlatives
+Description | Superlatives express a relation of an entity to all other entities. In general, this is difficult to prove.
+Severity | Minor
+Entity | Word
+Threshold | 1 match in the text (not configurable)
+Enabled | True
+Word List | beste, höchste, super, unglaublich, wichtigste, wichtigsten
+Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
+Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+
+<div id='UnnecessarySyllables'/>
 ## UnnecessarySyllables
 
 Attribute | Description
