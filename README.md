@@ -277,7 +277,7 @@ Description | Ambiguous Adverbs and Adjectives describe imprecise words.
 Severity | Minor
 Enabled | True
 Entity | Word
-Threshold | 1 match in the text  (not configurable)
+Threshold | 1 match in the text (not configurable)
 Word List | annäherend, beinahe, gewöhnlich, maximal, minimal, möglicherweise, nahezu, optimal, vielleicht, ziemlich
 Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__* allen Techniken und Vorgängen integriert.
  | Der Projektleiter muss folglich *__maximal__* in das Projekt integriert sein.
@@ -517,15 +517,17 @@ Positive Example | In der *__Software-Entwicklung__* legen Prozessmodelle den Ab
 
 Attribute | Description
 ------------ | -------------
-Anomaly Name | NestedSentence
+Anomaly Name | PassiveVoice
 Description | Sentence in passive voice tend to be longer and hide the actor of a sentence.
 Severity | Major
 Entity | Word
 Threshold | 1 match in a sentence (not configurable)
-Enabled | True
-Word List | 
-Negative Example | 
-Positive Example | 
+Enabled | False
+Word List | wurde, wurden, wurdest, worde, worden, geworden
+Negative Example | Das Projekt *__wurde__* mit einem schwergewichtigen Prozessmodell begonnen und drohte zu scheitern.
+ | Die Software wird deployed, wenn eine Task einer Storycard erfüllt wurde.
+Positive Example | Das Projekt began mit einem schwergewichtigen Prozessmodell und drohte zu scheitern.
+ | Die Software wird deployed, wenn ein Entwickler eine Task einer Storycard fertigestellt.
 
 <div id='sentencesStartWithSameWord'/>
 ## SentencesStartWithSameWord
@@ -533,14 +535,11 @@ Positive Example |
 Attribute | Description
 ------------ | -------------
 Anomaly Name | SentencesStartWithSameWord
-Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
+Description | Sentences that start with the same word are similiar to an enumeration and hinder the reading flow.
 Severity | Minor
 Entity | Word
 Threshold | 2 matches in successive sentence (configurable)
 Enabled | True
-Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
-Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
 <div id='subjectiveLanguage'/>
 ## SubjectiveLanguage
@@ -548,12 +547,12 @@ Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigge
 Attribute | Description
 ------------ | -------------
 Anomaly Name | subjectiveLanguage
-Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
+Description | Words with semantics that are not objectively defined should be avoided. Such words leave room for misinterpretation.
 Severity | Minor
 Entity | Word
-Threshold | 2 matches in one sentence (configurable)
+Threshold | 1 match in the text (not configurable)
 Enabled | True
-Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
+Word List | benutzerfreundlich, Benutzerfreundlichkeit, ein bisschen, einfach zu Nutzen, einfache Nutzbarkeit, kosteneffizient, kosteneffizienz, kostengünstig, logischerweise, natürlich, preiswert, selbstverständlich, selbstverständlich, ziemlich
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
@@ -563,14 +562,16 @@ Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigge
 Attribute | Description
 ------------ | -------------
 Anomaly Name | UnnecessarySyllables
-Description | With modal verbs, critical statements can be mitigated. Too many modal verbs also inflate a sentence.
+Description | Words containing unnecessary syllables should be shortened.
 Severity | Minor
 Entity | Word
 Threshold | 2 matches in one sentence (configurable)
 Enabled | True
-Word List | dürfen, dürfte, dürften, können, könnte, könnten, möchte, möchten, mögen, müssen, müsste, müssten, sollen, sollte, sollten, wollen, wollte, wollten
-Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
+Word List | abmahnen, abstrafen, ansonsten, aufgabenstellung, aufgabenstellungen, ausleseverfahren, bedrohungssignal, bedrohungssignalen, einflussnahme, einkürzen, gefährdungspotential, gefährdungspotenzial, grundprinzip, heilungsverlauf, heutzutage, lernprozess, letztendlich, motivationsstruktur, motivationsstrukturen, neuartig, problemstellung, problemstellungen, rückantwort, rückantworten, rücksichtsnahme, stillschweigen , themenstellung, themenstellungen, überprüfen, wettergeschehen, witterungsbedinungen, zielsetzung, zielsetzungen, zukunftsporgnose
+Negative Example | Für die Entwickler gilt es in der Vorbereitungsphase alle zur Verfügung stehenden Technologien einzubeziehen und sämtliche relevante Lösungsalternativen für die *__Problemstellung__* des Kunden prototypenhaft auszuarbeiten.
+ | *__Letztendlich__* verdeutlichen die erläuterten Techniken die gegenseitige Abhängigkeit – mit Ausnahme des Testens, welches auch effektiv einzeln angewendet werden kann.
+Positive Example | Für die Entwickler gilt es in der Vorbereitungsphase alle zur Verfügung stehenden Technologien einzubeziehen und sämtliche relevante Lösungsalternativen für die *__Probleme__* des Kunden prototypenhaft auszuarbeiten.
+ | *__Letztlich__* verdeutlichen die erläuterten Techniken die gegenseitige Abhängigkeit – mit Ausnahme des Testens, welches auch effektiv einzeln angewendet werden kann.
 
 The default readability rule configuration:
 
