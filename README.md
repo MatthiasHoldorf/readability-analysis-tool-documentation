@@ -252,8 +252,9 @@ The annotated .docx file is saved in the same directory as the original document
 - [UnnecessarySyllables](#unnecessarySyllables)
 
 <div id='adjectiveStyle'/>
+## AdjectiveStyle
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | AdjectiveStyle
 Description | Adjectives should only be used if they differniate. If an adjective is not necessary, it should be omitted.
@@ -267,8 +268,9 @@ Positive Example | Die Prozessmodelle sind *__detailliert__* dokumentiert. Anfor
  | [...] <s>alltägliche</s> Gewohnheiten.
 
 <div id='ambiguousAdjectivesAndAdverbs'/>
+## AmbiguousAdjectivesAndAdverbs
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | AmbiguousAdjectivesAndAdverbs
 Description | Ambiguous Adverbs and Adjectives describe imprecise words.
@@ -282,9 +284,10 @@ Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__
 Positive Examples | Die Programmierer sind in Extreme Programming in allen Techniken und Vorgängen integriert, außer [...] 
  | Der Projektleiter muss folglich zwei Arbeitstage in der Woche am Projekt arbeiten. 
 
-<div id='consecutiveFillers'/>
+<div id='cutiveFillers'/>
+ ## ConsecutiveFillers
  
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ConsecutiveFillers
 Description | Two consecutive fillers inflate a sentence.
@@ -303,8 +306,9 @@ Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__f
  | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
 
 <div id='consecutivePrepositions'/>
+## ConsecutivePrepositions
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ConsecutivePrepositions
 Description | Two consecutive spatial expressions (prepositions) most likely irritate a reader.
@@ -317,8 +321,9 @@ Negative Example | Wir geben nichts *__auf unter__* Druck zustande gekommene Ver
 Positive Example | Wir geben nichts Verträge die unter Druck zustande gekommen sind.
 
 <div id='doubleNegative'/>
-
-Key | Properties
+ ## DoubleNegative
+ 
+Attribute | Description
 ------------ | -------------
 Anomaly Name | DoubleNegative
 Description | Double negation in a sentence makes it hard to capture its meaning.
@@ -334,7 +339,7 @@ Positive Example | Das Schreiben von Tests ist wichtig. Das Testen privater Meth
 
 <div id='filler'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | Fillers
 Description | Unnecessary words, e.g. fillers, inflate a sentence.
@@ -350,7 +355,7 @@ Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__f
 
 <div id='fillerSentence'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | FillersSentence
 Description | Many unnecessary words, e.g. fillers, inflate a sentence.
@@ -364,7 +369,7 @@ Positive Example | In einem Projekten sollten <s>*__daher__* *__stets__*</s> all
 
 <div id='indirectSpeech'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | IndirectSpeech
 Description | Indirect speech should be avoided, since it is not clear who the actor in the sentence is.
@@ -373,12 +378,12 @@ Enabled | False
 Entity | Word
 Threshold | 1 match in the text (not configurable)
 Word List | man
-Negative Example | Die Rollen im Extrem Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__man__* löst sich von Gewohnheiten.
-Positive Example | Die Rollen im Extrem Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__die Teammitglieder__* lösen sich von Gewohnheiten.
+Negative Example | Die Rollen im Extreme Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__man__* löst sich von Gewohnheiten.
+Positive Example | Die Rollen im Extreme Programming können getauscht werden. Dadurch wird die Kreativität gefördert und *__die Teammitglieder__* lösen sich von Gewohnheiten.
 
 <div id='leadingAttributes'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | LeadingAttributes
 Description | If there are too many words between the article of a noun and the noun itself, the reader's short-term memory might forget the article. This likely results in a repeated read.
@@ -394,7 +399,7 @@ Positive Example | Die Programmierung erfolgt in *__einem Stil__*, der frei und 
 
 <div id='longSentence'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | LongSentence
 Description | Long sentences tend to carry too much information and should be avoided. 
@@ -407,7 +412,7 @@ Positive Example | Wenn in der aktuellen Iteration nicht alle Funktionen vom Tea
 
 <div id='longWord'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | LongWord
 Description | Words with many syllables tend to be unfamiliar and harder to understand.
@@ -420,7 +425,7 @@ Positive Example | In diesem Fall wird eine Dokumentation erstellt, die für zuk
 
 <div id='modalVerb'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Description | With modal verbs, critical statements can be mitigated.
@@ -434,7 +439,7 @@ Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigge
 
 <div id='modalVerbSentence'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerbSentence
 Description | With modal verbs, critical statements can be mitigated.
@@ -448,7 +453,7 @@ Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigge
 
 <div id='nestedSentence'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
@@ -459,7 +464,7 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 
 <div id='nestedSentenceConjunction'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
@@ -470,7 +475,7 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 
 <div id='nestedSentenceDelimiter'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
@@ -481,7 +486,7 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 
 <div id='nominalStyle'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | NominalStyle
 Severity | Critical
@@ -492,7 +497,7 @@ Correct Example | Folglich stieg die *__Hoffnung__*, dass es gelingen würde, di
 
 <div id='passiveVoice'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
@@ -504,7 +509,7 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 
 <div id='sentencesStartWithSameWord'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
@@ -515,7 +520,7 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 
 <div id='subjectiveLanguage'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
@@ -526,7 +531,7 @@ Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertigges
 
 <div id='unnecessarySyllables'/>
 
-Key | Properties
+Attribute | Description
 ------------ | -------------
 Anomaly Name | ModalVerb
 Severity | Major
