@@ -272,7 +272,8 @@ Anomaly Name | AmbiguousAdjectivesAndAdverbs
 Description | Ambiguous Adverbs and Adjectives describe imprecise words.
 Severity | Minor
 Entity | Word
-Threshold | 1 occurence in the text
+Word List | gewöhnlich, vielleicht, möglicherweise, beinahe, nahezu, annäherend, ziemlich, minimal, maximal
+Threshold | 1 occurrence in the text
 Enabled | True
 Word List | gewöhnlich, vielleicht, möglicherweise, beinahe, nahezu, annäherend, ziemlich, minimal, maximal
 Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__* allen Techniken und Vorgängen integriert.
@@ -288,7 +289,7 @@ Anomaly Name | ConsecutiveFillers
 Description | Two consecutive fillers inflate a sentence.
 Severity | Minor
 Entity | Word
-Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
+Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, allenthalben, allerdings, allesamt, allzu, also, andauernd, andererseits, andernfalls, anscheinend, an sich, auch, auffallend, aufs Neue, augenscheinlich, ausdrücklich, ausgerechnet, ausnahmslos, außerdem, äußerst, beinahe, bei weitem, bekanntlich, bereits, besonders, bestenfalls, bestimmt, bloß, dabei, dafür, dagegen, daher, damals, danach, dann und wann, demgegenüber, demgemäß, demnach, denkbar, denn, dennoch, deshalb, des Öfteren, des ungeachtet, deswegen, doch, durchaus, durchweg, eben, eigentlich, ein bisschen, einerseits, einfach, einige, einigermaßen, einmal, ein wenig, ergo, erheblich, etliche, etwa, etwas, fast, folgendermaßen, folglich, förmlich, fortwährend, fraglos, freilich, ganz, ganz und gar, gänzlich, gar, gelegentlich, gemeinhin, genau, geradezu, gewiss, gewissermaßen, glatt, gleichsam, gleichwohl, glücklicherweise, gottseidank, größtenteils, halt, häufig, hingegen, hinlänglich, höchst, höchstens, im Allgemeinen, immer, immerhin, immerzu, in der Tat, indessen, in diesem Zusammenhang, infolgedessen, insbesondere, inzwischen, irgend, irgendein, irgendjemand, irgendwann, irgendwie, irgendwo, ja, je, jedenfalls, jedoch, jemals, kaum, keinesfalls, keineswegs, längst, lediglich, leider, letztlich, manchmal, mehr oder weniger, meines Erachtens, meinetwegen, meist, meistens, meistenteils, mindestens, mithin, mitunter, möglicherweise, möglichst, nämlich, naturgemäß, natürlich, neuerdings, neuerlich, neulich, nichtsdestoweniger, nie, niemals, nun, nur, offenbar, offenkundig, offensichtlich, oft, ohnedies, ohne weiteres, ohne Zweifel, partout, plötzlich, praktisch, quasi, recht, reichlich, reiflich, relativ, restlos, richtiggehend, rundheraus, rundum, samt und sonders, sattsam, schlicht, schlichtweg, schließlich, schlussendlich, schon, sehr, selbst, selbstredend, selbstverständlich, selten, seltsamerweise, sicher, sicherlich, so, sogar, sonst, sowieso, sowohl als auch, sozusagen, stellenweise, stets, trotzdem, überaus, überdies, überhaupt, übrigens, umständehalber, unbedingt, unerhört, ungefähr, ungemein, ungewöhnlich, ungleich, unglücklicherweise, unlängst, unsagbar, unsäglich, unstreitig, unzweifelhaft, vermutlich, vielfach, vielleicht, voll, vollends, völlig, vollkommen, voll und ganz, von neuem, wahrscheinlich, weidlich, weitgehend, wenigstens, wieder, wiederum, wirklich, wohl, wohlgemerkt, womöglich, ziemlich, zudem, zugegeben, zumeist, zusehends, zuweilen, zweifellos, zweifelsfrei, zweifelsohne
 Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich fortwährend__*  zu.
  | In einem Projekt sollten *__daher stets__* alle dieser Techniken angewandt werden.
  | Letzteres ist allerdings nicht im Sinne des unden und *__sollte daher__* selten praktiziert werden.
