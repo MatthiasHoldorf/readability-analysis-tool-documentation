@@ -259,7 +259,7 @@ Anomaly Name | AdjectiveStyle
 Description | Adjectives should only be used if they differniate. If an adjective is not necessary, it should be omitted.
 Severity | Major
 Entity | Part-of-speech
-Threshold | 5
+Threshold | 5 per sentence
 Enabled | True
 Negative Example | Die *__schwergewichtigen__*  Prozessmodelle sind durch eine *__detaillierte__* Dokumentation gekennzeichnet, wodurch *__spätere__*  Änderungen an *__vorher definierten__*  Anforderungen nur mit *__hohem__*  Aufwand *__möglich__* sind.
 Positive Example | Die Prozessmodelle sind *__detailliert__* dokumentiert. Anforderungen lassen sich lediglich mit einem *__hohen__* Aufwand ändern.
@@ -272,23 +272,31 @@ Anomaly Name | AmbiguousAdjectivesAndAdverbs
 Description | Ambiguous Adverbs and Adjectives describe imprecise words.
 Severity | Minor
 Entity | Word
+Threshold | 1 occurence in the text
+Enabled | True
 Word List | gewöhnlich, vielleicht, möglicherweise, beinahe, nahezu, annäherend, ziemlich, minimal, maximal
-Negative Example | Die Programmierer sind in Extreme Programming in *__nahezu__* allen Techniken und Vorgängen integriert.
-| Der Projektleiter muss folglich *__maximal__* in das Projekt integriert sein.
-Positive Example | Die Programmierer sind in Extreme Programming in allen Techniken und Vorgängen integriert, außer [...] 
-| Der Projektleiter muss folglich zwei Arbeitstage Vollzeit am Projekt arbeiten. 
+Negative Examples | Die Programmierer sind in Extreme Programming in *__nahezu__* allen Techniken und Vorgängen integriert.
+ | Der Projektleiter muss folglich *__maximal__* in das Projekt integriert sein.
+Positive Examples | Die Programmierer sind in Extreme Programming in allen Techniken und Vorgängen integriert, außer [...] 
+ | Der Projektleiter muss folglich zwei Arbeitstage Vollzeit am Projekt arbeiten. 
 
 <div id='consecutiveFillers'/>
-
+ 
 Key | Properties
 ------------ | -------------
-Anomaly Name | ModalVerb
-Severity | Major
+Anomaly Name | ConsecutiveFillers
+Description | Two consecutive fillers inflate a sentence.
+Severity | Minor
 Entity | Word
 Explanation | Modalverben: können, sollen, wollen, mögen, dürfen. Mit ihnen lassen sich kritische Aussagen abschwächen – schließlich soll einen hinterher keiner festnageln können.
-Incorrect Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
-Correct Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
-
+Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich fortwährend__*  zu.
+ | In einem Projekt sollten *__daher stets__* alle dieser Techniken angewandt werden.
+ | Letzteres ist allerdings nicht im Sinne des unden und *__sollte daher__* selten praktiziert werden.
+ | Diese Art der Kommunikation und Planung funktioniert *__allerdings nur__* bis zu einem bestimmten Grad.
+Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich <s>fortwährend</s>__*  zu.
+ | In einem Projekt sollten *__daher <s>stets</s>__* alle dieser Techniken angewandt werden.
+ | Letzteres ist <s>allerdings</s> nicht im Sinne des Kunden und *__sollte <s>daher</s>__* selten praktiziert werden.
+ | Diese Art der Kommunikation und Planung funktioniert *<s>__allerdings</s> nur__* bis zu einem bestimmten Grad.
 <div id='consecutivePrepositions'/>
 
 Key | Properties
