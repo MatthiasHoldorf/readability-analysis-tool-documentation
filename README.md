@@ -32,7 +32,7 @@ The results of an analysis in a .docx file:
 
 ## Report
 
-Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas) and stores them in an HTML report next to the analyzed document.
+Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas). The report is stored in an HTML report next to the analyzed document.
 
 For both the analysed document and the statstic report an optional outputDirectorycan be specified via the commands "-o" or "--outputDirectory".
 
