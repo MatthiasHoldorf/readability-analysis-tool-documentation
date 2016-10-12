@@ -21,7 +21,7 @@ Name | Description
 RAT | Readability Analysis Tool (Readability-Checker)
 Supported File Types | .docx
 Supported Readability Rules | German
-Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li></ul>
+Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Automated detection of False Positives and Incorporated Anomalies</li></ul>
 Performance | 6 Seconds for 10.000 Words (45 Pages) after initialization
 Technologies | <ul><li>Java</li><li>UIMA</li><li>DKPro Core</li></ul>
 Licence | Not determined
