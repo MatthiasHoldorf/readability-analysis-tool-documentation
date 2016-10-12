@@ -16,6 +16,16 @@
 
 RAT is a tool to detect readability anomalies in text based on readability rules. Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. 
 
+Name | Description
+------------ | -------------
+RAT | Readability Analysis Tool (Readability-Checker)
+Supported File Types | .docx
+Supported Readability Rules | German
+Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li></ul>
+Performance | 6 Seconds for 10.000 Words (45 Pages) after initialization
+Technologies | <ul><li>Java</li><li>UIMA</li><li>DKPro Core</li></ul>
+Licence | Not determined
+
 ## Analysis
 
 During an analysis a .docx file is enriched with comments (the readability anomaly findings). The .docx file is then saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by RAT. In case a document is analysed that already has a "-rat.docx" suffix, the **very same** document is altered.
@@ -43,16 +53,6 @@ java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ ex
 The HTML report aggregates all readability mesaurements and assess the overall readability of the text through a quality gate; similar to static code analysis tools.
 
 Further, the report shows anomalies that were marked as declined (false positives) or incorporated by the user. RAT saves these information also in the XML of the .docx file itself. This way one can comprehend what action where taken during the editing of the document.
-
-Name | Description
------------- | -------------
-RAT | Readability Analysis Tool (Readability-Checker)
-Supported File Types | .docx
-Readability Rules | German
-Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Detection of False Positives</li></ul>
-Performance | 6 Seconds for 10.000 Words (45 Pages) after initialization
-Technologies | <ul><li>UIMA</li><li>UIMA Ruta</li><li>DKPro Core</li></ul>
-Licence | Not determined
 
 <div id='id-section02'/>
 # Getting Started
