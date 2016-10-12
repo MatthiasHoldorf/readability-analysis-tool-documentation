@@ -14,55 +14,7 @@
 <div id='id-section01'/>
 # About
 
-RAT is a tool to detect readability anomalies in text based on readability rules.
-
-## Anomalies
-
-Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. An example constitutes the following readability rule that detects consecutive fillers in a sentence:
-
-```Java
-@TypeCapability(inputs = { "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
-        "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence" }, outputs = {
-                "de.qaware.rat.type.RatReadabilityAnomaly" })
-public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConsecutiveFillersAnnotator.class);
-
-    public static final String SEVERITY = RuleParameter.SEVERITY;
-    @ConfigurationParameter(name = RuleParameter.SEVERITY, mandatory = true, defaultValue = "Minor")
-    protected String severity;
-
-    @Override
-    public void process(JCas aJCas) {
-        LOGGER.info("Start ConsecutiveFillersAnnotator");
-
-        try {
-            String[] fillers = ImporterUtils.readWordlist("word-lists/Fillers.txt");
-            List<Token> words = TextStatistic.getWordsInDocument(aJCas);
-
-            int maxSize = words.size() - 1;
-            for (int i = 0; i < words.size(); i++) {
-
-                if (i + 1 <= maxSize) {
-                    if (Arrays.asList(fillers).contains(words.get(i).getCoveredText().toLowerCase())
-                            && Arrays.asList(fillers).contains(words.get(i + 1).getCoveredText().toLowerCase())) {
-                        List<String> violations = new ArrayList<String>();
-                        violations.add(words.get(i).getCoveredText());
-                        violations.add(words.get(i + 1).getCoveredText());
-
-                        UimaUtils.createRatReadabilityAnomaly(aJCas, "ConsecutiveFillers", "ReadabilityAnomaly",
-                                severity,
-                                "Vermeiden Sie aufeinanderfolgende Füllwörter. ("
-                                        + CollectionUtils.printStringList(violations) + ")",
-                                violations, words.get(i).getBegin(), words.get(i).getEnd());
-                    }
-                }
-            }
-        } catch (IOException e) {
-            LOGGER.error("The ConsecutiveFillersAnnotator failed.");
-        }
-    }
-}
-```
+RAT is a tool to detect readability anomalies in text based on readability rules. Readability anomalies describe findings in a text which are difficult to read. The principle is similar to bug pattern in static code analysis. 
 
 ## Analysis
 
@@ -588,6 +540,52 @@ Negative Example | Für die Entwickler gilt es in der Vorbereitungsphase alle zu
  | *__Letztendlich__* verdeutlichen die erläuterten Techniken die gegenseitige Abhängigkeit – mit Ausnahme des Testens, welches auch effektiv einzeln angewendet werden kann.
 Positive Example | Für die Entwickler gilt es in der Vorbereitungsphase alle zur Verfügung stehenden Technologien einzubeziehen und sämtliche relevante Lösungsalternativen für die *__Probleme__* des Kunden prototypenhaft auszuarbeiten.
  | *__Letztlich__* verdeutlichen die erläuterten Techniken die gegenseitige Abhängigkeit – mit Ausnahme des Testens, welches auch effektiv einzeln angewendet werden kann.
+
+An example of a readability rule constitutes the following soure code, that detects consecutive fillers in a sentence:
+
+```Java
+@TypeCapability(inputs = { "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token",
+        "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence" }, outputs = {
+                "de.qaware.rat.type.RatReadabilityAnomaly" })
+public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConsecutiveFillersAnnotator.class);
+
+    public static final String SEVERITY = RuleParameter.SEVERITY;
+    @ConfigurationParameter(name = RuleParameter.SEVERITY, mandatory = true, defaultValue = "Minor")
+    protected String severity;
+
+    @Override
+    public void process(JCas aJCas) {
+        LOGGER.info("Start ConsecutiveFillersAnnotator");
+
+        try {
+            String[] fillers = ImporterUtils.readWordlist("word-lists/Fillers.txt");
+            List<Token> words = TextStatistic.getWordsInDocument(aJCas);
+
+            int maxSize = words.size() - 1;
+            for (int i = 0; i < words.size(); i++) {
+
+                if (i + 1 <= maxSize) {
+                    if (Arrays.asList(fillers).contains(words.get(i).getCoveredText().toLowerCase())
+                            && Arrays.asList(fillers).contains(words.get(i + 1).getCoveredText().toLowerCase())) {
+                        List<String> violations = new ArrayList<String>();
+                        violations.add(words.get(i).getCoveredText());
+                        violations.add(words.get(i + 1).getCoveredText());
+
+                        UimaUtils.createRatReadabilityAnomaly(aJCas, "ConsecutiveFillers", "ReadabilityAnomaly",
+                                severity,
+                                "Vermeiden Sie aufeinanderfolgende Füllwörter. ("
+                                        + CollectionUtils.printStringList(violations) + ")",
+                                violations, words.get(i).getBegin(), words.get(i).getEnd());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.error("The ConsecutiveFillersAnnotator failed.");
+        }
+    }
+}
+```
 
 The default readability rule configuration:
 
