@@ -18,7 +18,7 @@ RAT is a tool to detect readability anomalies in text based on readability rules
 
 Name | Description
 ------------ | -------------
-Category | Readability-Checker
+Category | Readability-Checker, Style-Checker
 Name | Readability Analysis Tool (RAT)
 Supported File Types | .docx
 Supported Readability Rules | German
