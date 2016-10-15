@@ -346,7 +346,7 @@ Attribute | Description
 Anomaly Name | LeadingAttributes
 Description | If there are too many words between the article of a noun and the noun itself, the reader's short-term memory might forget the article. This likely results in a repeated read.
 Severity | Minor
-Enabled | False
+Enabled | True
 Entity | Word
 Threshold | 4 words between article and noun (configurable)
 Word List | man
