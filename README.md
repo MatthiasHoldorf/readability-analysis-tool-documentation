@@ -506,7 +506,7 @@ Severity | Minor
 Entity | Word
 Threshold | 1 match in the text (not configurable)
 Enabled | True
-Word List | benutzerfreundlich, Benutzerfreundlichkeit, ein bisschen, einfach zu Nutzen, einfache Nutzbarkeit, kosteneffizient, kosteneffizienz, kostengünstig, logischerweise, natürlich, preiswert, selbstverständlich, ziemlich
+Word List | benutzerfreundlich, Benutzerfreundlichkeit, ein bisschen, einfach zu Nutzen, einfache Nutzbarkeit, kosteneffizient, kosteneffizienz, kostengünstig, logischerweise, preiswert, selbstverständlich, ziemlich
 Negative Example | Wir *__sollten__* das Produkt bis zum Ende des Jahres fertig entwickelt haben.
 Positive Example | Wir *__werden__* das Produkt bis zum Ende des Jahres fertiggestellt haben.
 
