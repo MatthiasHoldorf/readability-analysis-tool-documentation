@@ -211,7 +211,7 @@ The annotated .docx file is saved in the same directory as the original document
 Attribute | Description
 ------------ | -------------
 Anomaly Name | AdjectiveStyle
-Description | Adjectives should only be used if they differniate. If an adjective is not necessary, it should be omitted.
+Description | Adjectives should only be used if they differentiate. If an adjective is not necessary, it should be omitted.
 Severity | Major
 Enabled | True
 Entity | Part-of-speech
@@ -252,7 +252,7 @@ Threshold | 2 consecutive matches in the text (not configurable)
 Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, allenthalben, allerdings, allesamt, allzu, also, andauernd, andererseits, andernfalls, anscheinend, an sich, auch, auffallend, aufs Neue, augenscheinlich, ausdrücklich, ausgerechnet, ausnahmslos, außerdem, äußerst, beinahe, bei weitem, bekanntlich, bereits, besonders, bestenfalls, bestimmt, bloß, dabei, dafür, dagegen, daher, damals, danach, dann und wann, demgegenüber, demgemäß, demnach, denkbar, denn, dennoch, deshalb, des Öfteren, des ungeachtet, deswegen, doch, durchaus, durchweg, eben, eigentlich, ein bisschen, einerseits, einfach, einige, einigermaßen, einmal, ein wenig, ergo, erheblich, etliche, etwa, etwas, fast, folgendermaßen, folglich, förmlich, fortwährend, fraglos, freilich, ganz, ganz und gar, gänzlich, gar, gelegentlich, gemeinhin, genau, geradezu, gewiss, gewissermaßen, glatt, gleichsam, gleichwohl, glücklicherweise, gottseidank, größtenteils, halt, häufig, hingegen, hinlänglich, höchst, höchstens, im Allgemeinen, immer, immerhin, immerzu, in der Tat, indessen, in diesem Zusammenhang, infolgedessen, insbesondere, inzwischen, irgend, irgendein, irgendjemand, irgendwann, irgendwie, irgendwo, ja, je, jedenfalls, jedoch, jemals, kaum, keinesfalls, keineswegs, längst, lediglich, leider, letztlich, manchmal, mehr oder weniger, meines Erachtens, meinetwegen, meist, meistens, meistenteils, mindestens, mithin, mitunter, möglicherweise, möglichst, nämlich, naturgemäß, natürlich, neuerdings, neuerlich, neulich, nichtsdestoweniger, nie, niemals, nun, nur, offenbar, offenkundig, offensichtlich, oft, ohnedies, ohne weiteres, ohne Zweifel, partout, plötzlich, praktisch, quasi, recht, reichlich, reiflich, relativ, restlos, richtiggehend, rundheraus, rundum, samt und sonders, sattsam, schlicht, schlichtweg, schließlich, schlussendlich, schon, sehr, selbst, selbstredend, selbstverständlich, selten, seltsamerweise, sicher, sicherlich, so, sogar, sonst, sowieso, sowohl als auch, sozusagen, stellenweise, stets, trotzdem, überaus, überdies, überhaupt, übrigens, umständehalber, unbedingt, unerhört, ungefähr, ungemein, ungewöhnlich, ungleich, unglücklicherweise, unlängst, unsagbar, unsäglich, unstreitig, unzweifelhaft, vermutlich, vielfach, vielleicht, voll, vollends, völlig, vollkommen, voll und ganz, von neuem, wahrscheinlich, weidlich, weitgehend, wenigstens, wieder, wiederum, wirklich, wohl, wohlgemerkt, womöglich, ziemlich, zudem, zugegeben, zumeist, zusehends, zuweilen, zweifellos, zweifelsfrei, zweifelsohne
 Negative Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich fortwährend__* zu.
  | In einem Projekt sollten *__daher stets__* alle dieser Techniken angewandt werden.
- | Letzteres ist allerdings nicht im Sinne des unden und *__sollte daher__* selten praktiziert werden.
+ | Letzteres ist allerdings nicht im Sinne des Kunden und *__sollte daher__* selten praktiziert werden.
  | Diese Art der Kommunikation und Planung funktioniert *__allerdings nur__* bis zu einem bestimmten Grad.
 Positive Example | Mit dem Entwicklungsfortschritt nimmt die Zahl der Tests *__folglich <s>fortwährend</s>__* zu.
  | In einem Projekt sollten *__daher <s>stets</s>__* alle dieser Techniken angewandt werden.
@@ -289,7 +289,7 @@ Word List | ausnahmslos, außer, kein, keinerlei, keinesfalls, keineswegs, mitni
 Negative Example | Das Schreiben von Tests ist zwar wichtig, sollte jedoch *__nicht__* verpflichtend für Funktionen sein, die *__nicht__* öffentlich sichtbar sind.
  | Eine erzwungene Verantwortung führt *__nicht__* zu diesem Effekt und ist daher *__nicht__* erwünscht.
 Positive Example | Das Schreiben von Tests ist wichtig. Das Testen privater Methoden sollte nicht verpflichtend sein.
- | Eine erzwungene Verantwortung erzielt nicht den gewüschten Effekt.
+ | Eine erzwungene Verantwortung erzielt nicht den gewünschten Effekt.
 
 <div id='Filler'/>
 ## Fillers
@@ -321,7 +321,7 @@ Entity | Word
 Threshold | 3 matches in one sentence (configurable)
 Word List | aber, abermals, allein, allemal, allem Anschein, nach, allenfalls, allenthalben, allerdings, allesamt, allzu, also, andauernd, andererseits, andernfalls, anscheinend, an sich, auch, auffallend, aufs Neue, augenscheinlich, ausdrücklich, ausgerechnet, ausnahmslos, außerdem, äußerst, beinahe, bei weitem, bekanntlich, bereits, besonders, bestenfalls, bestimmt, bloß, dabei, dafür, dagegen, daher, damals, danach, dann und wann, demgegenüber, demgemäß, demnach, denkbar, denn, dennoch, deshalb, des Öfteren, des ungeachtet, deswegen, doch, durchaus, durchweg, eben, eigentlich, ein bisschen, einerseits, einfach, einige, einigermaßen, einmal, ein wenig, ergo, erheblich, etliche, etwa, etwas, fast, folgendermaßen, folglich, förmlich, fortwährend, fraglos, freilich, ganz, ganz und gar, gänzlich, gar, gelegentlich, gemeinhin, genau, geradezu, gewiss, gewissermaßen, glatt, gleichsam, gleichwohl, glücklicherweise, gottseidank, größtenteils, halt, häufig, hingegen, hinlänglich, höchst, höchstens, im Allgemeinen, immer, immerhin, immerzu, in der Tat, indessen, in diesem Zusammenhang, infolgedessen, insbesondere, inzwischen, irgend, irgendein, irgendjemand, irgendwann, irgendwie, irgendwo, ja, je, jedenfalls, jedoch, jemals, kaum, keinesfalls, keineswegs, längst, lediglich, leider, letztlich, manchmal, mehr oder weniger, meines Erachtens, meinetwegen, meist, meistens, meistenteils, mindestens, mithin, mitunter, möglicherweise, möglichst, nämlich, naturgemäß, natürlich, neuerdings, neuerlich, neulich, nichtsdestoweniger, nie, niemals, nun, nur, offenbar, offenkundig, offensichtlich, oft, ohnedies, ohne weiteres, ohne Zweifel, partout, plötzlich, praktisch, quasi, recht, reichlich, reiflich, relativ, restlos, richtiggehend, rundheraus, rundum, samt und sonders, sattsam, schlicht, schlichtweg, schließlich, schlussendlich, schon, sehr, selbst, selbstredend, selbstverständlich, selten, seltsamerweise, sicher, sicherlich, so, sogar, sonst, sowieso, sowohl als auch, sozusagen, stellenweise, stets, trotzdem, überaus, überdies, überhaupt, übrigens, umständehalber, unbedingt, unerhört, ungefähr, ungemein, ungewöhnlich, ungleich, unglücklicherweise, unlängst, unsagbar, unsäglich, unstreitig, unzweifelhaft, vermutlich, vielfach, vielleicht, voll, vollends, völlig, vollkommen, voll und ganz, von neuem, wahrscheinlich, weidlich, weitgehend, wenigstens, wieder, wiederum, wirklich, wohl, wohlgemerkt, womöglich, ziemlich, zudem, zugegeben, zumeist, zusehends, zuweilen, zweifellos, zweifelsfrei, zweifelsohne
 Negative Example | In einem Projekt sollten *__daher__* *__stets__* alle dieser Techniken angewandt werden, da *__andernfalls__* keine optimale Wirkung erzielt werden kann.
-Positive Example | In einem Projekten sollten <s>*__daher__* *__stets__*</s> alle diese Techniken angewandt werden, da andernfalls keine Wirkung erzielt wird.
+Positive Example | In einem Projekt sollten <s>*__daher__* *__stets__*</s> alle diese Techniken angewandt werden, da andernfalls keine Wirkung erzielt wird.
 
 <div id='IndirectSpeech'/>
 ## IndirectSpeech
@@ -344,7 +344,7 @@ Positive Example | Die Rollen im Extreme Programming können getauscht werden. D
 Attribute | Description
 ------------ | -------------
 Anomaly Name | LeadingAttributes
-Description | If there are too many words between the article of a noun and the noun itself, the reader's short-term memory might forget the article. This likely results in a repeated read.
+Description | If there are too many words between the article of a noun and the noun itself, the reader's short-term memory might forget the article.
 Severity | Minor
 Enabled | True
 Entity | Word
@@ -480,8 +480,8 @@ Enabled | False
 Word List | wurde, wurden, wurdest, worde, worden, geworden
 Negative Example | Das Projekt *__wurde__* mit einem schwergewichtigen Prozessmodell begonnen und drohte zu scheitern.
  | Die Software wird deployed, wenn eine Task einer Storycard erfüllt wurde.
-Positive Example | Das Projekt began mit einem schwergewichtigen Prozessmodell und drohte zu scheitern.
- | Die Software wird deployed, wenn ein Entwickler eine Task einer Storycard fertigestellt.
+Positive Example | Das Projekt begann mit einem schwergewichtigen Prozessmodell und drohte zu scheitern.
+ | Die Software wird deployed, wenn ein Entwickler eine Task einer Storycard fertiggestellt.
 
 <div id='SentencesStartWithSameWord'/>
 ## SentencesStartWithSameWord
@@ -489,7 +489,7 @@ Positive Example | Das Projekt began mit einem schwergewichtigen Prozessmodell u
 Attribute | Description
 ------------ | -------------
 Anomaly Name | SentencesStartWithSameWord
-Description | Sentences that start with the same word are similiar to an enumeration and hinder the reading flow.
+Description | Sentences that start with the same word are similar  to an enumeration and hinder the reading flow.
 Severity | Minor
 Entity | Word
 Threshold | 2 matches in successive sentence (configurable)
