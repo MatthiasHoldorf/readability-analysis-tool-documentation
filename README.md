@@ -4,12 +4,21 @@
 
 # Table of content
 - [About](#id-section01)
+ - [Analysis](#id-analysis)
+ - [Report](#id-report)
 - [Getting Started](#id-section02)
-- [Arguments](#id-section0)
+ - [Download](#id-download)
+ - [Execution](#id-execution)
+ - [Assembly Folder Structure](#id-assembly-folder-structure)
+ - [Arguments](#id-arguments)
 - [Readability Formulas](#id-section1)
 - [Readability Statistics](#id-section2)
 - [Readability Anomalies](#id-section3)
+ - [Implemented Anomalies](#id-implemented-rules)
+ - [Example Implementation](#id-example-implementation)
+ - [Default Configuration](#id-default-configruation)
 - [Configuration & Quality Gate](#id-section4)
+- [Licenses](#id-section5)
 
 <div id='id-section01'/>
 # About
@@ -27,6 +36,7 @@ Performance | 6 Seconds for 10.000 Words (45 Pages) after initialization
 Technologies | <ul><li>Java</li><li>UIMA</li><li>UIMA Ruta</li><li>DKPro Core</li></ul>
 Licence | Not determined
 
+<div id='id-analysis'/>
 ## Analysis
 
 During an analysis a .docx file is enriched with comments (the readability anomaly findings). The .docx file is then saved as a new file with a "-rat.docx" suffix. This ensures that the original document cannot be corrupted by RAT. In case a document is analysed that already has a "-rat.docx" suffix, the **very same** document is altered.
@@ -41,11 +51,12 @@ The results of an analysis in a .docx file:
 
 ![results-docx](/doc-images/results-docx.PNG)
 
+<div id='id-report'/>
 ## Report
 
-Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas). The report is stored in an HTML report next to the analyzed document.
+Additionaly, RAT computes a report about statistics of the text (e.g., average words per sentence, reading time, most used nouns) and [readability formulas](https://en.wikipedia.org/wiki/Readability#Popular_readability_formulas). The report is stored in an HTML file next to the analyzed document.
 
-For both the analysed document and the statstic report an optional outputDirectorycan be specified via the commands "-o" or "--outputDirectory".
+For both the analysed document and the statstic report an optional outputDirectorycan can be specified via the argument "-o" or "--outputDirectory".
 
 ```
 java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ examples/multiple-files/*
@@ -53,12 +64,36 @@ java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ ex
 
 The HTML report aggregates all readability mesaurements and assess the overall readability of the text through a quality gate; similar to static code analysis tools.
 
-Further, the report shows anomalies that were marked as declined (false positives) or incorporated by the user. RAT saves these information also in the XML of the .docx file itself. This way one can comprehend what action where taken during the editing of the document.
+Further, the report shows anomalies that were marked as declined (false positives) or incorporated by the user. RAT saves these information also in the XML of the .docx file itself. In this way, one can comprehend what action where taken during the editing of the document.
 
 <div id='id-section02'/>
 # Getting Started
 
-RAT is invoked via the command line. The assembly is delivered with example exatuables and documents. By that, the handling of the software can be learned quick and the results are shown.
+<div id='id-download'/>
+## Download RAT
+You can get the current release of RAT [here](https://github.com/qaware/readability-analysis/releases). Just unzip the file rat-{version}-tarball.tar and start your analysis.
+
+<div id='id-execution'/>
+## Execution
+RAT is invoked via the command line. Examples to invoke RAT:
+
+```
+java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ examples/multiple-files/*
+```
+```
+java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar --configurationPath ../../config/rat-config.xml *
+```
+```
+java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar -c ../../config/rat-config.xml *.docx
+```
+```
+java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar --configurationPath ../../config/rat-config.xml 45-page-9500-words-assignment.docx
+```
+
+<div id='id-assembly-folder-structure'/>
+## Assembly Folder Structure
+
+The assembly is delivered with example exatuables and documents. By that, the handling of the software can be learned quickly. 
 
 <pre>
 .
@@ -86,10 +121,10 @@ RAT is invoked via the command line. The assembly is delivered with example exat
 |   rat.example.sh
 </pre>
 
-<div id='id-section0'/>
-# Arguments
+<div id='id-arguments'/>
+## Arguments
 
-RAT can be invoked from the command line with the following optional arguments:
+RAT can be invoked with the following optional arguments:
 
 ```
 usage: Rat v0.4
@@ -98,23 +133,7 @@ usage: Rat v0.4
  -h,--help                      display help menu
 ```
 
-The last argument must be a valid path to a potential file for an analysis. Command line wildcards can be used, e.g. `/*.docx` or `directoryPath/*/*.docx`.
-
-Examples to invoke RAT:
-
-```
-java -jar lib/rat-executor-cmd-0.5-SNAPSHOT.jar -o examples/output-directory/ examples/multiple-files/*
-```
-```
-java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar --configurationPath ../../config/rat-config.xml *
-```
-```
-java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar -c ../../config/rat-config.xml *.docx
-```
-```
-java -jar ../../lib/rat-executor-cmd-0.5-SNAPSHOT.jar --configurationPath ../../config/rat-config.xml 45-page-9500-words-assignment.docx
-```
-
+The last argument must be a valid path to a potential file for an analysis. Command line wildcards can be used, e.g. `/*.docx`.
 
 <div id='id-section1'/>
 # Readability Formulas
@@ -181,6 +200,7 @@ RAT detects the below listed readability anomalies and annotates them as comment
 
 The annotated .docx file is saved in the same directory as the original document with a "-rat.docx" suffix, e.g. "{filename}-rat.{file-extension}".
 
+<div id='id-implemented-rules'/>
 ## Implemented Readability Anomalies
 - [AdjectiveStyle](#AdjectiveStyle)          
 - [AmbiguousAdjectivesAndAdverbs](#AmbiguousAdjectivesAndAdverbs)
@@ -542,6 +562,9 @@ Negative Example | Für die Entwickler gilt es in der Vorbereitungsphase alle zu
 Positive Example | Für die Entwickler gilt es in der Vorbereitungsphase alle zur Verfügung stehenden Technologien einzubeziehen und sämtliche relevante Lösungsalternativen für die *__Probleme__* des Kunden prototypenhaft auszuarbeiten.
  | *__Letztlich__* verdeutlichen die erläuterten Techniken die gegenseitige Abhängigkeit – mit Ausnahme des Testens, welches auch effektiv einzeln angewendet werden kann.
 
+<div id='id-example-implementation'/>
+## Example Implementation
+
 An example of a readability rule constitutes the following soure code, that detects consecutive fillers in a sentence:
 
 ```Java
@@ -588,7 +611,36 @@ public class ConsecutiveFillersAnnotator extends JCasAnnotator_ImplBase {
 }
 ```
 
+<div id='id-default-configruation'/>
+## Default Configuration
+
 The default readability rule configuration:
+
+ # | Rule | Threshold | Enabled
+ ------------ | ------------- | ------------- | -------------
+1  | AdjectiveStyleAnnotator |	5 | true
+2  | AmbiguousAdjectivesAndAdverbsAnnotator	| | true
+3  | ConsecutiveFillersAnnotator | | true	
+4  | ConsecutivePrepositionsAnnotator | | true	
+5  | DoubleNegativeAnnotator |	2 | true
+6  | Fillers | | false
+7  | FillerSentenceAnnotator | 	3 | true
+8  | IndirectSpeech | | false
+9  | LeadingAttributesAnnotator | 4 | true
+10 | LongSentenceAnnotator | 35 | true
+11 | LongWordAnnotator | 8 | true
+12 | ModalVerb | | false
+13 | ModalVerbSentenceAnnotator |	2 | true
+14 | NestedSentenceAnnotator | 6 | true
+15 | NestedSentenceConjunction | 3 | false
+16 | NestedSentenceDelimiter | 3 | false
+17 | NominalStyleAnnotator|	3 | true
+18 | PassiveVoiceAnnotator | | true
+19 | SentencesStartWithSameWordAnnotator |	2 | true
+20 | SubjectiveLanguageAnnotator | | true
+21 | SuperlativeAnnotator | | true
+22 | UnnecessarySyllablesAnnotator | | true
+
 
 ```xml
 <anomalies>
@@ -727,7 +779,6 @@ We developed a similar quality gate for RAT:
 
 ![rat-quality-gate](/doc-images/rat-quality-gate.PNG)
 
-
 The default quality gate configuration:
 
 ```xml
@@ -783,3 +834,25 @@ The default quality gate configuration:
         </statistics>
     </quality-gate>
 ```
+<div id='id-section5'/>
+# Licenses
+
+RAT depends on 103 third party libraries under the following licenses:
+
+ # | License
+------------ | -------------
+1 | Apache License version 2.0
+2 | BSD 2-Clause License
+3 | BSD 3-Clause License
+4 | COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
+5 | Eclipse Public + Distribution License - v 1.0
+6 | Eclipse Public License - v 1.0
+7 | European Union Public License v1.1
+8 | GNU Affero General Public License (AGPL) version 3.0
+9 | GNU Free Documentation License (FDL) version 1.3
+10 | GNU General Lesser Public License (LGPL) version 2.1
+11 | GNU General Lesser Public License (LGPL) version 3.0
+12 | GNU General Public License (GPL) version 1.0
+13 | GNU General Public License (GPL) version 2.0
+14 | GNU General Public License (GPL) version 3.0
+15 | MIT-License
