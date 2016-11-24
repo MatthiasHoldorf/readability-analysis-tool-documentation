@@ -18,7 +18,6 @@
  - [Example Implementation](#id-example-implementation)
  - [Default Configuration](#id-default-configruation)
 - [Configuration & Quality Gate](#id-section4)
-- [Licenses](#id-section5)
 
 <div id='id-section01'/>
 # About
@@ -34,7 +33,7 @@ Supported Readability Rules | German
 Features | <ul><li>Annotation of Readability Anomalies</li><li>Statistic Report</li><li>Configurable Anomaly Rules</li><li>Configurable Quality Gate</li><li>Automated detection of False Positives and Incorporated Anomalies (allowing semi-automated evaluation)</li></ul>
 Performance | 6 Seconds for 10.000 Words (45 Pages) after initialization
 Technologies | <ul><li>Java</li><li>UIMA</li><li>UIMA Ruta</li><li>DKPro Core</li></ul>
-Licence | Not determined
+License | GPLv3
 
 <div id='id-analysis'/>
 ## Analysis
@@ -834,25 +833,3 @@ The default quality gate configuration:
         </statistics>
     </quality-gate>
 ```
-<div id='id-section5'/>
-# Licenses
-
-RAT depends on 103 third party libraries under the following licenses:
-
- # | License
------------- | -------------
-1 | Apache License version 2.0
-2 | BSD 2-Clause License
-3 | BSD 3-Clause License
-4 | COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
-5 | Eclipse Public + Distribution License - v 1.0
-6 | Eclipse Public License - v 1.0
-7 | European Union Public License v1.1
-8 | GNU Affero General Public License (AGPL) version 3.0
-9 | GNU Free Documentation License (FDL) version 1.3
-10 | GNU General Lesser Public License (LGPL) version 2.1
-11 | GNU General Lesser Public License (LGPL) version 3.0
-12 | GNU General Public License (GPL) version 1.0
-13 | GNU General Public License (GPL) version 2.0
-14 | GNU General Public License (GPL) version 3.0
-15 | MIT-License
